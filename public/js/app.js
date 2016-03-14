@@ -1,14 +1,10 @@
 function config($routeProvider) {
 	$routeProvider
-		.when('/', {
-			templateUrl: 'views/main.html',
-			controller: 'mainController'
-		})
-		.when('/about', {
-			templateUrl: 'views/about.html'
+		.when('/new', {
+			templateUrl: 'views/new.html'
 		})
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/new'
 		});
 }
 function run($rootScope, $location){

@@ -13,7 +13,7 @@ var userSchema = new mongoose.Schema({
         firstname: String,
         lastname: String,
         birthday: Date,
-        sexe: Boolean, // 0 = male // 1 = femelle ?
+        sexe: Boolean, // 0 = male // 1 = femelle
         address: {
             road: String,
             road2: String,
@@ -23,8 +23,7 @@ var userSchema = new mongoose.Schema({
         },
         phone: {
             home: Number,
-            mobile: Number,
-            other: Number
+            mobile: Number
         },
         hobbies: {
 
