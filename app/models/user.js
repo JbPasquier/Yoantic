@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 
 var userSchema = new mongoose.Schema({
-    pseudo: String,
+    nickname: String,
     email: String,
     password: String,
     token: String,
@@ -47,7 +47,7 @@ var User = {
 
     create: function(req, res) {
         User.model.create({
-            description: req.body.description
+            nickname: req.body.nickname
         }, function() {
             res.sendStatus(200);
         });
@@ -61,7 +61,7 @@ var User = {
 
     update: function(req, res) {
         User.model.findByIdAndUpdate(req.params.id, {
-            description: req.body.description
+            nickname: req.body.nickname
         }, function() {
             res.sendStatus(200);
         });

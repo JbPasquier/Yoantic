@@ -9,21 +9,21 @@ function mainController($scope, $http, userService) {
 	}
 	$scope.add = function(){
 		var data = {};
-		data.description = $scope.description;
+		data.nickname = $scope.nickname;
 		userService.create(data).then(function(res){
 			load();
 		});
-		$scope.description = "";
-	}
+		$scope.nickname = "";
+	};
 	$scope.update = function(user){
 		userService.update(user._id, user).then(function(res){
 			load();
 		});
-	}
+	};
 	$scope.delete = function(user){
 		userService.delete(user._id).then(function(res){
 			load();
 		});
-	}
+	};
 	load();
 }
