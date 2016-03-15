@@ -1,10 +1,10 @@
 function config($routeProvider) {
 	$routeProvider
-		.when('/new', {
-			templateUrl: 'views/new.html'
+		.when('/createAccount', {
+			templateUrl: 'views/userCreation/step-1.html'
 		})
 		.otherwise({
-			redirectTo: '/new'
+			redirectTo: '/createAccount'
 		});
 }
 function run($rootScope, $location){

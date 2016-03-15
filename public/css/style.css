@@ -1,12 +1,8 @@
-body{
-    padding-top: 70px;
+body {
+    background-image: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    color: #fff;
 }
-.navbar-border{
-	border-bottom: 3px solid #F0DB4F;
+* {
+    font-size: 18px;
 }
-.navbar-header img{
-	transition: 0.4s;
-}
-.navbar-header img:hover{
-	transform: rotate(360deg);
-}  

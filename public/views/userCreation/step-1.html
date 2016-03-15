@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-4">
+                <strong>Ta tronche</strong>
+                <input type="file" ng-model='profil[picture]'/>
+            </div>
+            <div class="col-xs-8">
+                    <strong>T'es</strong>
+                    <input type="radio" name="sex" value='male' ng-model='profil[sex]'/> Un couillu
+                    <input type="radio" name="sex" value='female' ng-model='profil[sex]'/> Une go
+                    <div class="input-group">
+                        <span class="input-group-addon">Ville</span>
+                        <input type="text" class="form-control" placeholder="La loupe..." ng-model='profil[city]'/>
+                    </div>
+            </div>
+            <div class="col-xs-12 text-center">
+              <input type="checkbox" ng-model='profil[major18]' /> Je certifie être majeur et être en condition physique et mentale pour rencontrer Maître Yoan
+            </div>
+            <div class="col-xs-12">
+              <button type="button" class="btn btn-success btn-block">
+                Etape suivante
+              </button>
+            </div>
+        </div>
+    </div>
+</div>
