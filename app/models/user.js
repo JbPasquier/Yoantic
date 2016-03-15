@@ -44,7 +44,7 @@ var User = {
 
     model: mongoose.model('User', userSchema),
 
-    create: function(req, res) {
+    createAccount: function(req, res) {
         User.model.create({
             nickname: req.body.nickname
         }, function() {
