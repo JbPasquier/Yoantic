@@ -1,12 +1,58 @@
-body{
-    padding-top: 70px;
+body {
+    background-image: url('../assets/bg.jpg');
+    background-repeat: no-repeat;
+    color: #fff;
 }
-.navbar-border{
-	border-bottom: 3px solid #F0DB4F;
+* {
+    font-size: 18px;
 }
-.navbar-header img{
-	transition: 0.4s;
+.createAccount {
+    padding: 30px;
+    min-height: 500px;
+    margin-top: 5%;
+    opacity: .8;
+    margin-bottom: 5%;
 }
-.navbar-header img:hover{
-	transform: rotate(360deg);
-}  
+.pictureUserCreation {
+    min-height: 300px;
+    width: 100%;
+    background: black;
+}
+.navbar-userCreation {
+    opacity: .9;
+}
+.gender {
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    margin: 10%;
+    margin-top: 4%;
+    margin-bottom: 80px;
+    cursor:pointer;
+    background: grey;
+    opacity: .5;
+    line-height: 120px;
+    text-align: center;
+    font-size: 80px;
+    border-radius: 100%;
+}
+.input-group * {
+    background: none;
+    border:none;
+    font-size: 18px;
+    color:#fff;
+}
+.input-group input {
+    border-bottom: 1px solid white;
+}
+.setOpacity {
+    opacity: 1;
+}
+.navbar-right li a, .btn-white {
+    background-color:#ededed!important;
+    color:#333!important;
+    font-weight: bolder;
+}
+.userCreationMarginTopBtn {
+    margin-top:30px;
+}

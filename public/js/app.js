@@ -1,21 +1,19 @@
 function config($routeProvider) {
-	$routeProvider
-		.when('/new', {
-			templateUrl: 'views/new.html'
-		})
-		.otherwise({
-			redirectTo: '/new'
-		});
+    $routeProvider
+        .when('/userCreation/step-1', {
+            templateUrl: 'views/userCreation/step-1.html'
+        })
+        .when('/userCreation/step-2', {
+            templateUrl: 'views/userCreation/step-2.html'
+        })
+        .when('/test', {
+            templateUrl: 'views/userCreation/test.html'
+        })
+        .otherwise({
+            redirectTo: '/userCreation/step-1'
+        });
 }
-function run($rootScope, $location){
-	var path = function() { return $location.path(); };
-	$rootScope.$watch(path, function(newVal, oldVal){
-		$rootScope.activetab = newVal;
-	});
-}
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'ngAnimate'])
     .config(config)
-    .controller('mainController', mainController)
-    .service('userService', userService)
-    /*.factory('', )*/
-    .run(run);
+    .controller('userCreationController', userCreationController)
+    .service('userService', userService);

@@ -1,6 +1,7 @@
 // USER SERVICE
 function userService($http) {
     return {
+        datas: {},
         get : function() {
             return $http.get('/user');
         },
