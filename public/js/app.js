@@ -13,7 +13,7 @@ function run($rootScope, $location){
 		$rootScope.activetab = newVal;
 	});
 }
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'ngAnimate'])
     .config(config)
     .controller('mainController', mainController)
     .service('userService', userService)
