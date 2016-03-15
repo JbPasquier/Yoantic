@@ -7,7 +7,7 @@ function userService($http) {
         update : function(id, data){
             return $http.put('/user/' + id, data);
         },
-        create : function(data) {
+        createAccount : function(data) {
             return $http.post('/user', data);
         },
         delete : function(id) {
