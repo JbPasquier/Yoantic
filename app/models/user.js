@@ -9,34 +9,34 @@ var userSchema = new mongoose.Schema({
     token: String,
     userCreation: Date,
     lastLogin: Date,
+    isVerified: Boolean,
     profile: {
+        city: String,
         firstname: String,
         lastname: String,
         birthday: Date,
         sexe: Boolean, // 0 = male // 1 = femelle
-        address: {
-            road: String,
-            road2: String,
-            postalCode: Number,
-            city: String,
-            country: String
-        },
-        phone: {
-            home: Number,
-            mobile: Number
-        },
-        hobbies: {
-
-        },
-        isVerified: Boolean
+        convenant: String,
+        married: String,
+        children: String,
+        wantChildren: String,
+        height: String,
+        weight: String,
+        wantChildren: String,
+        hairLenght: String,
+        hairColor: String,
+        origin: String,
     },
     search: {
         ageDiffMin: Number,
         ageDiffMax: Number,
-        sexe: Boolean,
-        hobbies: {
-
-        }
+        boobsMeasurementMin: Number,
+        boobsMeasurementMax: Number,
+        waistCircumferenceMin: Number,
+        waistCircumferenceMax: Number,
+        assMeasurementMin: Number,
+        assMeasurementMax: Number,
+        sexe: Boolean
     }
 });
 
@@ -45,28 +45,30 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     createAccount: function(req, res) {
-        User.model.create({
-            nickname: req.body.nickname,
-            email: req.body.email,
-            password: req.body.password,
-            profile: {
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                birthday: req.body.birthday,
-                sexe: req.body.sexe,
-                address: {
-                    road: req.body.road,
-                    road2: req.body.road2,
-                    postalCode: req.body.postalCode,
-                    city: req.body.city,
-                    country: req.body.country
-                },
-                phone: {
-                    home: req.body.home,
-                    mobile: req.body.mobile
+        
+        if(req.body.password == req.body.passwordConfirmation) {
+            User.model.create({
+                nickname: req.body.nickname,
+                email: req.body.email,
+                password: req.body.password,
+                profile: {
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
+                    birthday: req.body.birthday,
+                    sexe: req.body.sexe,
+                    city: req.body.city
                 }
-            }
-        }, function() {
+            }, function() {
+                res.sendStatus(200);
+            });
+        } else {
+            res.sendStatus(400);
+        } 
+        
+    },
+
+    updateAccount: function(req, res) {
+        User.model.findByIdAndUpdate(req.params.id, req.body.obj, function() {
             res.sendStatus(200);
         });
     },
@@ -74,14 +76,6 @@ var User = {
     findAll: function(req, res) {
         User.model.find(function(err, data) {
             res.send(data);
-        });
-    },
-
-    update: function(req, res) {
-        User.model.findByIdAndUpdate(req.params.id, {
-            nickname: req.body.nickname
-        }, function() {
-            res.sendStatus(200);
         });
     },
 
