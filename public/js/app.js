@@ -1,11 +1,17 @@
 function config($routeProvider) {
-	$routeProvider
-		.when('/createAccount', {
-			templateUrl: 'views/userCreation/step-1.html'
-		})
-		.otherwise({
-			redirectTo: '/createAccount'
-		});
+    $routeProvider
+        .when('/userCreation/step-1', {
+            templateUrl: 'views/userCreation/step-1.html'
+        })
+        .when('/userCreation/step-2', {
+            templateUrl: 'views/userCreation/step-2.html'
+        })
+        .when('/test', {
+            templateUrl: 'views/userCreation/test.html'
+        })
+        .otherwise({
+            redirectTo: '/userCreation/step-1'
+        });
 }
 angular.module('app', ['ngRoute', 'ngAnimate'])
     .config(config)

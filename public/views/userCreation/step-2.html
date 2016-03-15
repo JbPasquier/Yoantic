@@ -1,0 +1,33 @@
+<div class='row' ng-controller='userCreationController'>
+    <div class="col-xs-12 col-md-8 col-md-offset-2 createAccount navbar-inverse">
+        <div class="row">
+{{datas}}
+        </div>
+        <div class="row userCreationMarginTopBtn">
+            <div class="col-xs-3 col-xs-offset-9">
+                <button type="button" class="btn btn-block btn-lg btn-white" ng-click='step("next")'>
+                    Continuer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-bottom navbar-userCreation">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#" ng-click='step("1")'>Je suis</a>
+            </li>
+                <li class="active">
+                    <a href="#" ng-click='step("2")'>Je suis</a>
+                </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#" ng-click='step("next")'>
+                    <span class='glyphicon glyphicon-fast-forward'></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

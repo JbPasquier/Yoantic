@@ -40,7 +40,19 @@ body {
     background: none;
     border:none;
     font-size: 18px;
+    color:#fff;
 }
 .input-group input {
     border-bottom: 1px solid white;
+}
+.setOpacity {
+    opacity: 1;
+}
+.navbar-right li a, .btn-white {
+    background-color:#ededed!important;
+    color:#333!important;
+    font-weight: bolder;
+}
+.userCreationMarginTopBtn {
+    margin-top:30px;
 }

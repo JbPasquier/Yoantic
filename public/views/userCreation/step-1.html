@@ -1,26 +1,32 @@
 <div class='row' ng-controller='userCreationController'>
     <div class="col-xs-12 col-md-8 col-md-offset-2 createAccount navbar-inverse">
         <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-md-4">
                 <strong>Ta tronche</strong>
                 <div class="pictureUserCreation">
                     <img src="" alt=""/>
                 </div>
-                <input type="file" ng-model='profil[picture]'/>
+                <input type="file" ng-model='datas["picture"]'/>
             </div>
-            <div class="col-xs-8">
+            <div class="col-xs-12 col-md-8">
                 <div class='row text-center'>
-                    <div class='gender' style='background-color:#2964A3' ng-click='changeGender(1)'>&#9794;</div>
-                    <div class='gender' style='background-color:#F152FF' ng-click='changeGender(0)'>&#9792;</div>
+                    <div class='gender' style='background-color:#2964A3' ng-click='changeGender(1)' ng-class='datas.currentGender == 1 ? "setOpacity" : ""'>&#9794;</div>
+                    <div class='gender' style='background-color:#F152FF' ng-click='changeGender(0)' ng-class='datas.currentGender == 0 ? "setOpacity" : ""'>&#9792;</div>
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon">Ville</span>
-                    <input type="text" class="form-control" placeholder="La loupe..." ng-model='profil[city]' />
+                        <span class="input-group-addon">Ville</span>
+                        <input type="text" class="form-control" placeholder="La loupe..." ng-model='datas["city"]'/>
                 </div>
                 <br/>
-
-                <label><input type="checkbox" ng-model='profil[major18]' />
-                    Je certifie être majeur et être en condition physique et mentale pour rencontrer Maître Yoan</label>
+                <label><input type="checkbox" ng-model='datas["major18"]'/>
+                    Je certifie être majeur et être en condition physique</label>
+            </div>
+        </div>
+        <div class="row userCreationMarginTopBtn">
+            <div class="col-xs-3 col-xs-offset-9">
+                <button type="button" class="btn btn-block btn-lg btn-white" ng-click='step("next")'>
+                    Continuer
+                </button>
             </div>
         </div>
     </div>
@@ -29,12 +35,14 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li class="active">
-                <a href="#">Je suis</a>
+                <a href="#" ng-click='step("1")' id='step-1'>Je suis</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">Etape suivante</a>
+                <a href="#" ng-click='step("next")'>
+                    <span class='glyphicon glyphicon-fast-forward'></span>
+                </a>
             </li>
         </ul>
     </div>
