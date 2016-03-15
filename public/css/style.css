@@ -6,3 +6,41 @@ body {
 * {
     font-size: 18px;
 }
+.createAccount {
+    padding: 30px;
+    min-height: 500px;
+    margin-top: 5%;
+    opacity: .8;
+    margin-bottom: 5%;
+}
+.pictureUserCreation {
+    min-height: 300px;
+    width: 100%;
+    background: black;
+}
+.navbar-userCreation {
+    opacity: .9;
+}
+.gender {
+    width: 120px;
+    height: 120px;
+    display: inline-block;
+    margin: 10%;
+    margin-top: 4%;
+    margin-bottom: 80px;
+    cursor:pointer;
+    background: grey;
+    opacity: .5;
+    line-height: 120px;
+    text-align: center;
+    font-size: 80px;
+    border-radius: 100%;
+}
+.input-group * {
+    background: none;
+    border:none;
+    font-size: 18px;
+}
+.input-group input {
+    border-bottom: 1px solid white;
+}

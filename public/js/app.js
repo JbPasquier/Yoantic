@@ -7,15 +7,7 @@ function config($routeProvider) {
 			redirectTo: '/createAccount'
 		});
 }
-function run($rootScope, $location){
-	var path = function() { return $location.path(); };
-	$rootScope.$watch(path, function(newVal, oldVal){
-		$rootScope.activetab = newVal;
-	});
-}
 angular.module('app', ['ngRoute', 'ngAnimate'])
     .config(config)
-    .controller('mainController', mainController)
-    .service('userService', userService)
-    /*.factory('', )*/
-    .run(run);
+    .controller('userCreationController', userCreationController)
+    .service('userService', userService);
