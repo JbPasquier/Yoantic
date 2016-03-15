@@ -46,37 +46,37 @@ function mainController($scope, $http, userService) {
                 'Homme'
             ]
         }, {
-            model: 'address.road',
+            model: 'road',
             label: 'Ouktuvis',
             type: 'text',
             placeholder: 'Rue...'
         }, {
-            model: 'address.road2',
+            model: 'road2',
             label: '',
             type: 'text',
             placeholder: 'Rue 2...'
         }, {
-            model: 'address.postalCode',
+            model: 'postalCode',
             label: '',
             type: 'number',
             placeholder: 'Code postal (Le truc à 5 chiffres à peu près)...'
         }, {
-            model: 'address.city',
+            model: 'city',
             label: '',
             type: 'text',
             placeholder: 'Paris ou la loupe ?...'
         }, {
-            model: 'address.country',
+            model: 'country',
             label: '',
             type: 'text',
             placeholder: 'Ton pays... (Le truc plus grand qu\'une ville)'
         }, {
-            model: 'phone.home',
+            model: 'home',
             label: 'Ton 02',
             type: 'number',
             placeholder: 'C\'quoi ton tel maison...'
         }, {
-            model: 'phone.mobile',
+            model: 'mobile',
             label: 'Ton 06',
             type: 'number',
             placeholder: 'Cui sans fil...'
@@ -86,8 +86,7 @@ function mainController($scope, $http, userService) {
     $scope.tableau = {};
 
     $scope.createAccount = function() {
-        var data = $scope.tableau;
-        userService.createAccount(data);
+        userService.createAccount($scope.tableau);
         $scope.tableau = [];
     };
 }

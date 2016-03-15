@@ -46,7 +46,26 @@ var User = {
 
     createAccount: function(req, res) {
         User.model.create({
-            nickname: req.body.nickname
+            nickname: req.body.nickname,
+            email: req.body.email,
+            password: req.body.password,
+            profile: {
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                birthday: req.body.birthday,
+                sexe: req.body.sexe,
+                address: {
+                    road: req.body.road,
+                    road2: req.body.road2,
+                    postalCode: req.body.postalCode,
+                    city: req.body.city,
+                    country: req.body.country
+                },
+                phone: {
+                    home: req.body.home,
+                    mobile: req.body.mobile
+                }
+            }
         }, function() {
             res.sendStatus(200);
         });
