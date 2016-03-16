@@ -22,7 +22,6 @@ var userSchema = new mongoose.Schema({
         wantChildren: String,
         height: String,
         weight: String,
-        wantChildren: String,
         hairLenght: String,
         hairColor: String,
         origin: String,
@@ -45,7 +44,7 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     createAccount: function(req, res) {
-        
+
         if(req.body.password == req.body.passwordConfirmation) {
             User.model.create({
                 nickname: req.body.nickname,
@@ -63,8 +62,8 @@ var User = {
             });
         } else {
             res.sendStatus(400);
-        } 
-        
+        }
+
     },
 
     updateAccount: function(req, res) {
