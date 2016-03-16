@@ -1,1 +1,3 @@
 *.DS_Store
+app/config/database.js
+node-modules
