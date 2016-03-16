@@ -33,7 +33,7 @@
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </span>
 
-                            <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' />
+                            <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' ng-trim="false"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -42,24 +42,29 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </span>
-
-                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-minlength="5"/>
+                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-minlength="5" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim="false"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-pencil"></span>
                             </span>
-
                             <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Ton code de carte bleue" ng-model='datas["passwordConfirm"]' ng-minlength="5"/>
                         </div>
                     </div>
                     <ul>
-                    <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Ce nom d'utilisateur est invalide</li>
-                    <li ng-show="userCreationForm.email.$dirty && userCreationForm.email.$error.email" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Cet email est invalide</li>
+                    <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Un pseudo est composé de chiffres et/ou de lettres</li>
+                    <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.maxlength" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le pseudo doit contenir au maximum 12 caractères</li>
+                    <li ng-show="userCreationForm.firstName.$dirty && userCreationForm.firstName.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Ce prénom n'est pas accepté</li>
+                    <li ng-show="userCreationForm.lastName.$dirty && userCreationForm.lastName.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Ce nom n'est pas accepté</li>
+                    <li ng-show="userCreationForm.email.$dirty && userCreationForm.email.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Cet email est invalide</li>
                     <li ng-show="userCreationForm.password.$dirty && userCreationForm.password.$error.minlength" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins 5 caractères</li>
+                    <li ng-show="datas.password != '' && datas.password.match(/[A-Z]+/)" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins une majuscule</li>
+                    <li ng-show="datas.password != '' && datas.password.match(/[a-z]+/)" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins une minuscule</li>
+                    <li ng-show="datas.password != '' && datas.password.match(/[0-9]+/)" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins un chiffre</li>
                     <li ng-show="datas.password != datas.passwordConfirm && datas.passwordConfirm != ''" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Les mots de passes sont différents</li>
                 </ul>
                 </form>
+                     {{datas.password}}
             </div>
         </div>
         <button ng-disabled="userCreationForm.$invalid" type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
