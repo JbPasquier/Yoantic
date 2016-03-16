@@ -4,10 +4,27 @@
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <strong>Ta tronche</strong>
-                    <div class="pictureUserCreation">
-                        <img src="assets/yoan_profil.jpg" alt="You" style='min-width:100%;' />
+                    <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope">
+                        <div class="pictureUserCreation" ng-show="!$flow.files.length">
+                            <img src="assets/yoan_profil.jpg" alt="You" style='min-width:100%;' />
+                        </div>
+                        <div class="pictureUserCreation ng-hide" ng-show="$flow.files.length">
+                            <img flow-img="$flow.files[0]">
+                        </div>
+                        <div>
+                            <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>
+                                "Selectionnez une image"
+                                <input type="file" style="visibility: hidden; position: absolute;">
+                            </span>
+                            <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn>
+                                "Changer"
+                                <input type="file" style="visibility: hidden; position: absolute;">
+                            </span>
+                            <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                "Supprimer"
+                            </span>
+                        </div>
                     </div>
-                    <input type="file" ng-model='datas["picture"]'/>
                 </div>
                 <div class="col-xs-12 col-md-8">
                     <div class='row text-center'>
@@ -23,12 +40,10 @@
                         Je certifie être majeur et être en condition physique</label>
                 </div>
             </div>
-            <div class="row userCreationNextBtn">
-                <div class="col-xs-3 col-xs-offset-9">
-                    <button type="button" class="btn btn-block btn-lg btn-white" ng-click='step("next")'>
-                        Continuer
-                    </button>
-                </div>
+            <div>
+                <button type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
+                    Continuer
+                </button>
             </div>
         </form>
     </div>

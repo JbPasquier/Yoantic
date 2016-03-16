@@ -6,8 +6,13 @@
                     <div class="form-group">
                         <label class="control-label col-md-4" for="nickname">Pseudo</label>
                         <div class="col-md-8">
+<<<<<<< Updated upstream
                             <input required type="text" class="form-control" name="nickname" id="nickname" autofocus placeholder="Ton blaze... jaimeleskiwi69" ng-model='datas["nickname"]' ng-pattern="/^[a-zA-Z]+$/" ng-trim='false'/>
                             <p ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='text-danger'>Ce nom d'utilisateur est invalide</p>
+=======
+                            <input type="text" class="form-control" name="nickname" id="nickname" placeholder="RastaBoy" ng-model='datas["nickname"]' ng-pattern="/^[a-zA-Z0-9]+$/" ng-trim='false'/>
+                            <span ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern">non valid!</span>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                     <div class="form-group">

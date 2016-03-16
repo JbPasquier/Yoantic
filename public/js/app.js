@@ -13,7 +13,7 @@ function config($routeProvider) {
             redirectTo: '/userCreation/step-1'
         });
 }
-angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete'])
+angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete', 'flow'])
     .config(config)
     .controller('userCreationController', userCreationController)
     .service('userService', userService);
