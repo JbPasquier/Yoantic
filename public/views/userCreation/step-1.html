@@ -1,34 +1,36 @@
 <div class='row' ng-controller='userCreationController'>
     <div class="col-xs-12 col-md-8 col-md-offset-2 createAccount navbar-inverse">
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                <strong>Ta tronche</strong>
-                <div class="pictureUserCreation">
-                    <img src="" alt=""/>
+        <form name="userCreationForm">
+            <div class="row">
+                <div class="col-xs-12 col-md-4">
+                    <strong>Ta tronche</strong>
+                    <div class="pictureUserCreation">
+                        <img src="assets/yoan_profil.jpg" alt="You" style='min-width:100%;' />
+                    </div>
+                    <input type="file" ng-model='datas["picture"]'/>
                 </div>
-                <input type="file" ng-model='datas["picture"]'/>
-            </div>
-            <div class="col-xs-12 col-md-8">
-                <div class='row text-center'>
-                    <div class='gender' style='background-color:#2964A3' ng-click='changeGender(1)' ng-class='datas.currentGender == 1 ? "setOpacity" : ""'>&#9794;</div>
-                    <div class='gender' style='background-color:#F152FF' ng-click='changeGender(0)' ng-class='datas.currentGender == 0 ? "setOpacity" : ""'>&#9792;</div>
-                </div>
-                <div class="input-group">
+                <div class="col-xs-12 col-md-8">
+                    <div class='row text-center'>
+                        <div class='gender' style='background-color:#2964A3' ng-click='changeGender(1)' ng-class='datas.currentGender == 1 ? "setOpacity" : ""'>&#9794;</div>
+                        <div class='gender' style='background-color:#F152FF' ng-click='changeGender(0)' ng-class='datas.currentGender == 0 ? "setOpacity" : ""'>&#9792;</div>
+                    </div>
+                    <div class="input-group">
                         <span class="input-group-addon">Ville</span>
                         <input type="text" class="form-control" placeholder="La loupe..." ng-model='datas["city"]'/>
+                    </div>
+                    <br/>
+                    <label><input type="checkbox" ng-model='datas["major18"]'/>
+                        Je certifie être majeur et être en condition physique</label>
                 </div>
-                <br/>
-                <label><input type="checkbox" ng-model='datas["major18"]'/>
-                    Je certifie être majeur et être en condition physique</label>
             </div>
-        </div>
-        <div class="row userCreationNextBtn">
-            <div class="col-xs-3 col-xs-offset-9">
-                <button type="button" class="btn btn-block btn-lg btn-white" ng-click='step("next")'>
-                    Continuer
-                </button>
+            <div class="row userCreationNextBtn">
+                <div class="col-xs-3 col-xs-offset-9">
+                    <button type="button" class="btn btn-block btn-lg btn-white" ng-click='step("next")'>
+                        Continuer
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 <nav class="navbar navbar-inverse navbar-fixed-bottom navbar-userCreation">
