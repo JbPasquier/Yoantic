@@ -16,6 +16,6 @@ function userCreationController($scope, $http, userService, $location) {
     };
     $scope.createAccount = function() {
         userService.createAccount();
-    };    
+    };
     userService.datas = $scope.datas;
 }

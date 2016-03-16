@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     color: #fff;
 }
-* {
+html * {
     font-size: 18px;
 }
 .createAccount {
@@ -28,7 +28,7 @@ body {
     margin: 10%;
     margin-top: 4%;
     margin-bottom: 80px;
-    cursor:pointer;
+    cursor: pointer;
     background: grey;
     opacity: .5;
     line-height: 120px;
@@ -38,33 +38,36 @@ body {
 }
 .input-group *, .form-group * {
     background: none;
-    border:none;
+    border: none;
     font-size: 18px;
-    color:#fff;
+    color: #fff;
+}
+input-group .text-danger, .form-group .text-danger {
+    color: #F57693;
 }
 .input-group input, .form-group input {
     border-bottom: 1px solid white;
+    border-radius: 0;
+    margin-bottom: 12px;
 }
-input[type]:focus, textarea:focus 
-{
-    box-shadow:none;
-     -webkit-box-shadow: none;
-    border-bottom: &px solid blue;    
+input[type]:focus, textarea:focus {
+    box-shadow: none;
+    border-color: cyan;
 }
-input.ng-invalid{
-    border-bottom: 1px solid red;
+input.ng-invalid {
+    border-color: white;
 }
 .setOpacity {
     opacity: 1;
 }
 .navbar-right li a, .btn-white {
-    background-color:#ededed!important;
-    color:#333!important;
+    background-color: #ededed!important;
+    color: #333!important;
     font-weight: bolder;
 }
 .userCreationNextBtn {
     position: absolute;
     bottom: 3%;
-    padding-right: 2%;
-    width: 100%;
+    right:1%;
+    width:15%;
 }
