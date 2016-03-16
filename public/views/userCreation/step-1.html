@@ -16,7 +16,7 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">Ville</span>
-                        <input type="text" class="form-control" placeholder="La loupe..." ng-model='datas["city"]'/>
+                        <input type="text" class="form-control" placeholder="La loupe..." ng-model='datas["city"]'  ng-autocomplete='result_city' options="{types: '(cities)'}" />
                     </div>
                     <br/>
                     <label><input type="checkbox" ng-model='datas["major18"]'/>
