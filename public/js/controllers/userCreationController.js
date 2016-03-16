@@ -5,7 +5,6 @@ function userCreationController($scope, $http, userService, $location) {
     if(!$scope.datas.currentGender) $scope.datas.currentGender = 2;
     $scope.changeGender = function(gender) {
         $scope.datas.currentGender = gender;
-
     };
     $scope.step = function(where) {
         var path = '/userCreation/step-'+where;
@@ -17,6 +16,6 @@ function userCreationController($scope, $http, userService, $location) {
     };
     $scope.createAccount = function() {
         userService.createAccount();
-    };
+    };    
     userService.datas = $scope.datas;
 }

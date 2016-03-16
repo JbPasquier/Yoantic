@@ -7,7 +7,7 @@ body {
     font-size: 18px;
 }
 .createAccount {
-    padding: 30px;
+    padding: 40px;
     min-height: 500px;
     margin-top: 5%;
     opacity: .8;
@@ -36,14 +36,23 @@ body {
     font-size: 80px;
     border-radius: 100%;
 }
-.input-group * {
+.input-group *, .form-group * {
     background: none;
     border:none;
     font-size: 18px;
     color:#fff;
 }
-.input-group input {
+.input-group input, .form-group input {
     border-bottom: 1px solid white;
+}
+input[type]:focus, textarea:focus 
+{
+    box-shadow:none;
+     -webkit-box-shadow: none;
+    border-bottom: &px solid blue;    
+}
+input.ng-invalid{
+    border-bottom: 1px solid red;
 }
 .setOpacity {
     opacity: 1;
@@ -53,6 +62,9 @@ body {
     color:#333!important;
     font-weight: bolder;
 }
-.userCreationMarginTopBtn {
-    margin-top:30px;
+.userCreationNextBtn {
+    position: absolute;
+    bottom: 3%;
+    padding-right: 2%;
+    width: 100%;
 }
