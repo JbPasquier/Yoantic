@@ -1,47 +1,64 @@
 <div class='row' ng-controller='userCreationController'>
-    <div class="col-xs-12 col-md-8 col-md-offset-2 createAccount navbar-inverse">
+    <div class="col-xs-12 col-md-6 col-md-offset-3 createAccount navbar-inverse">
+<h1 class='text-center'>A propos <small>de toi</small></h1>
         <div class="row">
-            <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
                 <form name="userCreationForm">
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="nickname">Pseudo</label>
-                        <div class="col-md-8">
-                            <input required type="text" class="form-control" name="nickname" id="nickname" autofocus placeholder="Ton blaze... jaimeleskiwi69" ng-model='datas["nickname"]' ng-pattern="/^[a-zA-Z]+$/" ng-trim='false'/>
-                            <p ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='text-danger'>Ce nom d'utilisateur est invalide</p>
+                        <label class="control-label" for="nickname">Pseudo</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon" ng-class='(userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern) ? "glyphicon-remove red" : datas.nickname ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
+                            </span>
+                            <input required type="text" class="form-control" name="nickname" id="nickname" placeholder="Ton pseudo" ng-model='datas["nickname"]' ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false'/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="firstName">Prénom</label>
-                        <div class="col-md-8">
-                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Le blaze de ta naissance... Kévin" ng-model='datas["firstName"]' ng-pattern="/[A-Za-z]\w+/g" ng-trim='false'/>
+                        <label class="control-label" for="firstName">Identité</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </span>
+                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </span>
+                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
+
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </span>
+
+                            <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' />
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="lastName">Nom</label>
-                        <div class="col-md-8">
-                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Le blaze de ta famille... Martin" ng-model='datas["lastName"]' ng-pattern="/[A-Za-z]\w+/g" ng-trim='false'/>
+                        <label class="control-label" for="password">Mot de passe</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </span>
+
+                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-minlength="5"/>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </span>
+
+                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Ton code de carte bleue" ng-model='datas["passwordConfirm"]' ng-minlength="5"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4" for="email">E-mail</label>
-                        <div class="col-md-8">
-                            <input required type="email" class="form-control" name="email" id="email" placeholder="Email... bonnebaise28@yaourt.fr" ng-model='datas["email"]'/>
-                            <span ng-show="userCreationForm.email.$dirty && userCreationForm.email.$error.email">@-mail non valid!</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4" for="password">Mot de passe</label>
-                        <div class="col-md-8">
-                            <input required type="password" class="form-control" name="password" id="password" placeholder="Mot de passe... 12345" ng-model='datas["password"]' ng-minlength="5"/>
-                            <span ng-show="userCreationForm.password.$dirty && userCreationForm.password.$error.minlength">Le mot de passe doit contenir au moins 5 caractères</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-4" for="passwordConfirm">Confirmes ton mot de passe</label>
-                        <div class="col-md-8">
-                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe... 12345" ng-model='datas["passwordConfirm"]' ng-minlength="5"/>
-                        </div>
-                    </div>
+                    <ul>
+                    <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Ce nom d'utilisateur est invalide</li>
+                    <li ng-show="userCreationForm.email.$dirty && userCreationForm.email.$error.email" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Cet email est invalide</li>
+                    <li ng-show="userCreationForm.password.$dirty && userCreationForm.password.$error.minlength" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins 5 caractères</li>
+                    <li ng-show="datas.password != datas.passwordConfirm && datas.passwordConfirm != ''" class='white-danger'><span class='glyphicon glyphicon-remove'></span> Les mots de passes sont différents</li>
+                </ul>
                 </form>
             </div>
         </div>

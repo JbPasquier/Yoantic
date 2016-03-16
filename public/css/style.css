@@ -3,19 +3,22 @@ body {
     background-repeat: no-repeat;
     color: #fff;
 }
-html * {
-    font-size: 18px;
+* {
+    font-size:18px;
+}
+h1 {
+    margin-bottom:30px;
 }
 .createAccount {
     padding: 40px;
-    min-height: 500px;
+    min-height: 600px;
     margin-top: 5%;
     opacity: .8;
     margin-bottom: 5%;
 }
 .pictureUserCreation {
-    min-height: 300px;
-    width: 100%;
+    min-height: 250px;
+    max-width: 100%;
     background: black;
 }
 .navbar-userCreation {
@@ -30,7 +33,7 @@ html * {
     margin-bottom: 80px;
     cursor: pointer;
     background: grey;
-    opacity: .5;
+    opacity: .25;
     line-height: 120px;
     text-align: center;
     font-size: 80px;
@@ -42,20 +45,34 @@ html * {
     font-size: 18px;
     color: #fff;
 }
-input-group .text-danger, .form-group .text-danger {
-    color: #F57693;
+.red {
+    color:red;
 }
-.input-group input, .form-group input {
+.green {
+    color:green;
+}
+.white-danger {
+    list-style-type: none;
+    color:white;
+    padding-left:5px;
+}
+.white-danger span {
+    color: red;
+}
+.input-group input {
     border-bottom: 1px solid white;
     border-radius: 0;
     margin-bottom: 12px;
 }
-input[type]:focus, textarea:focus {
-    box-shadow: none;
-    border-color: cyan;
+input:focus, textarea:focus {
+    box-shadow: none!important;
+    border-color: cyan!important;
 }
-input.ng-invalid {
+input.ng-invalid.ng-empty {
     border-color: white;
+}
+input.ng-invalid.ng-not-empty {
+    border-color: red;
 }
 .setOpacity {
     opacity: 1;
