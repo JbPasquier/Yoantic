@@ -19,20 +19,20 @@
                         <label class="control-label" for="firstName">Identité</label>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon" ng-class='(userCreationForm.firstName.$dirty && userCreationForm.firstName.$error.pattern) ? "glyphicon-remove red" : datas.firstName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
                             <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon" ng-class='(userCreationForm.lastName.$dirty && userCreationForm.lastName.$error.pattern) ? "glyphicon-remove red" : datas.lastName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
                             <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
 
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon" ng-class='(userCreationForm.email.$dirty && userCreationForm.email.$error.pattern) ? "glyphicon-remove red" : datas.email ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
 
                             <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' ng-trim="false"/>
@@ -42,15 +42,15 @@
                         <label class="control-label" for="password">Mot de passe</label>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon" ng-class='datas.password.length < 5 || isValidPassword("[A-Z]+") || isValidPassword("[a-z]+") || isValidPassword("[0-9]+") ? "glyphicon-remove red" : datas.password ? "glyphicon-ok green" : !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/" />
+                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/"/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="glyphicon" ng-class='datas.password != datas.passwordConfirm && datas.password.length > 5 ? "glyphicon-remove red" : datas.passwordConfirm ? "glyphicon-ok green" : !(userCreationForm.passwordConfirm.$dirty && userCreationForm.passwordConfirm.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Ton code de carte bleue" ng-model='datas["passwordConfirm"]' />
+                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Ton code de carte bleue" ng-model='datas["passwordConfirm"]' ng-pattern="/^[A-Za-z0-9]+$/"/>
                         </div>
                     </div>
                     <ul>
@@ -101,13 +101,6 @@
             </li>
             <li class="active">
                 <a href="#" ng-click='step("2")'>Etape 2</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#" ng-click='step("next")'>
-                    <span class='glyphicon glyphicon-fast-forward'></span>
-                </a>
             </li>
         </ul>
     </div>

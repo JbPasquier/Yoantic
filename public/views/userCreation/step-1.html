@@ -6,22 +6,22 @@
                 <div class="col-xs-12 col-md-4">
                     <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope">
                         <div class="pictureUserCreation" ng-show="!$flow.files.length">
-                            <img src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' />
+                            <img src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' class='img-circle' />
                         </div>
                         <div class="pictureUserCreation ng-hide" ng-show="$flow.files.length">
-                            <img flow-img="$flow.files[0]">
+                            <img flow-img="$flow.files[0]" style='max-width:100%;' class='img-circle'>
                         </div>
-                        <div>
-                            <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn>
-                                "Selectionnez une image"
+                        <div class="text-center">
+                            <span class="btn btn-link" ng-show="!$flow.files.length" flow-btn>
+                                <b class='white'><span class='glyphicon glyphicon-download'></span> Modifier</b>
                                 <input type="file" style="visibility: hidden; position: absolute;">
                             </span>
-                            <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn>
-                                "Changer"
+                            <span class="btn btn-link ng-hide" ng-show="$flow.files.length" flow-btn>
+                                <b class='white'><span class='glyphicon glyphicon-download'></span> Modifier</b>
                                 <input type="file" style="visibility: hidden; position: absolute;">
                             </span>
-                            <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                "Supprimer"
+                            <span class="btn btn-link ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
+                                <b class='white white-danger'><span class='glyphicon glyphicon-remove-circle'></span> </b>
                             </span>
                         </div>
                     </div>
@@ -33,14 +33,14 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">T'es d'où ?</span>
-                        <input type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='datas["city"]'  ng-autocomplete='result_city' options="{types: '(cities)'}" />
+                        <input required type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='datas["city"]'  ng-autocomplete='result_city' options="{types: '(cities)'}" />
                     </div>
                 </div>
             </div>
-            <label class="pull-right"><input type="checkbox" ng-model='datas["major18"]'/>
+            <label class="pull-right"><input type="checkbox" ng-model='datas["major18"]' required />
                 Je certifie être majeur et être en condition physique</label>
             <div>
-                <button type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
+                <button ng-disabled="userCreationForm.$invalid || datas.currentGender == 2" type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
                     Continuer
                 </button>
             </div>
@@ -52,13 +52,6 @@
         <ul class="nav navbar-nav">
             <li class="active">
                 <a href="#" ng-click='step("1")' id='step-1'>Je suis</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#" ng-click='step("next")'>
-                    <span class='glyphicon glyphicon-fast-forward'></span>
-                </a>
             </li>
         </ul>
     </div>

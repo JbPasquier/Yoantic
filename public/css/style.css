@@ -1,6 +1,7 @@
 body {
     background-image: url('../assets/bg.jpg');
     background-repeat: no-repeat;
+
     color: #fff;
 }
 * {
@@ -13,13 +14,12 @@ h1 {
     padding: 40px;
     min-height: 600px;
     margin-top: 5%;
-    opacity: .8;
+    opacity: .9;
     margin-bottom: 5%;
 }
 .pictureUserCreation {
     min-height: 250px;
     max-width: 100%;
-    background: black;
 }
 .navbar-userCreation {
     opacity: .9;
@@ -50,6 +50,14 @@ h1 {
 }
 .green {
     color:green;
+}
+.white {
+    color:white;
+    padding-left:5px;
+}
+.white span {
+    font-size:22px;
+    color: cyan;
 }
 .white-danger {
     list-style-type: none;
