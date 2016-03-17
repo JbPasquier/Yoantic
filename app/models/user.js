@@ -44,8 +44,25 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     createAccount: function(req, res) {
+            console.log(req.body);
+        var is_ok = 1;
 
-        if(req.body.password == req.body.passwordConfirmation) {
+        if (req.body.nickname.match(/^[A-Za-z-]+$/) < 1)
+            is_ok += "Le pseudo n'est pas valide\n";
+        if (req.body.firstName.match(/^[A-Za-z-]+$/) < 1)
+            is_ok += "Le nom n'est pas valide\n";
+        if (req.body.lastName.match(/^[A-Za-z-]+$/) < 1)
+            is_ok += "Le prenom n'est pas valide\n";
+        if (req.body.email.match(/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/) < 1)
+            is_ok += "L'e-mail n'est pas valide\n";
+        if(req.body.password.match(/[A-Z]+/) < 1)
+            is_ok += "Le mot de passe n'a pas au moins majuscule\n";
+        if(req.body.password.match(/[a-z]+/) < 1)
+            is_ok += "Le mot de passe n'a pas au moins une minuscule\n";
+        if(req.body.password.match(/[0-9]+/) < 1)
+            is_ok += "Le mot de passe n'a pas au moins chiffre\n";
+
+        if(is_ok == 1){
             User.model.create({
                 nickname: req.body.nickname,
                 email: req.body.email,
@@ -61,6 +78,7 @@ var User = {
                 res.sendStatus(200);
             });
         } else {
+            console.log(is_ok);
             res.sendStatus(400);
         }
 

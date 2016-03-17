@@ -17,15 +17,17 @@ function userCreationController($scope, $http, userService, $location) {
         }
     };
     $scope.step = function(where) {
-        var path = '/userCreation/step-' + where;
         if (where == 'next') {
-
-            path = '/userCreation/step-' + ($scope.datas.current + 1);
-            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + ($scope.datas.current + 1) + '.jpg")');
+            $scope.datas.current++;
+            if($scope.datas.current == 3) {
+                userService.createAccount($scope.datas);
+            }
+            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + $scope.datas.current + '.jpg")');
         } else {
-            $scope.datas.current = Number(where);
+            $scope.datas.current = where;
             $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + where + '.jpg")');
         }
+        var path = '/userCreation/step-' + $scope.datas.current;
         userService.datas = $scope.datas;
         $location.path(path);
     };
