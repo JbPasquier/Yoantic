@@ -44,7 +44,7 @@ var User = {
     model: mongoose.model('User', userSchema),
 
     createAccount: function(req, res) {
-            console.log(req.body);
+        console.log(req.body);
         var is_ok = 1;
 
         if (req.body.nickname.match(/^[A-Za-z-]+$/) < 1)
