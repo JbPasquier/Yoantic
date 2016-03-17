@@ -1,16 +1,19 @@
 function config($routeProvider) {
     $routeProvider
         .when('/userCreation/step-1', {
-            templateUrl: 'views/userCreation/step-1.html'
+            templateUrl: 'views/userCreation/step-1.html',
+            controller: userCreationController
         })
         .when('/userCreation/step-2', {
-            templateUrl: 'views/userCreation/step-2.html'
+            templateUrl: 'views/userCreation/step-2.html',
+            controller: userCreationController
         })
-        .when('/test', {
-            templateUrl: 'views/userCreation/test.html'
+        .when('/join-us', {
+            templateUrl: 'views/userCreation/joinus.html',
+            controller: userCreationController
         })
         .otherwise({
-            redirectTo: '/userCreation/step-1'
+            redirectTo: '/join-us'
         });
 }
 angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete', 'flow'])

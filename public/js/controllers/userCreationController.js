@@ -19,14 +19,20 @@ function userCreationController($scope, $http, userService, $location) {
     $scope.step = function(where) {
         var path = '/userCreation/step-' + where;
         if (where == 'next') {
+
             path = '/userCreation/step-' + ($scope.datas.current + 1);
+            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + ($scope.datas.current + 1) + '.jpg")');
         } else {
             $scope.datas.current = Number(where);
+            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + where + '.jpg")');
         }
         userService.datas = $scope.datas;
-        $('body').css('background-image', 'none').css('background-color', '#ffffff');
         $location.path(path);
     };
+    $scope.register = function() {
+        $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step2.jpg")');
+        $location.path('/userCreation/step-1');
+    }
     $scope.createAccount = function() {
         userService.createAccount();
     };
