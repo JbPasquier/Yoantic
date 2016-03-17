@@ -24,7 +24,7 @@ function userCreationController($scope, $http, userService, $location) {
             $scope.datas.current = Number(where);
         }
         userService.datas = $scope.datas;
-        $('body').css('background-image', 'none').css('background-color', '#ffffff')
+        $('body').css('background-image', 'none').css('background-color', '#ffffff');
         $location.path(path);
     };
     $scope.createAccount = function() {

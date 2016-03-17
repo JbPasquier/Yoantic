@@ -1,7 +1,7 @@
 body {
     background-image: url('../assets/bg.jpg');
     background-repeat: no-repeat;
-
+    background-size: cover;
     color: #fff;
 }
 * {
@@ -95,4 +95,29 @@ input.ng-invalid.ng-not-empty {
     bottom: 3%;
     right:1%;
     width:15%;
+}
+@media (max-width:900px) {
+    .navbar-userCreation {
+        display:none;
+    }
+    .pictureUserCreation {
+        text-align: center;
+    }
+    .createAccount {
+        padding-bottom:30px;
+    }
+
+    .userCreationNextBtn {
+        position:relative;
+        margin:0;
+        right:0;
+        bottom:0;
+        width:100%;
+    }
+    .label-step1 {
+        margin-bottom:40px;
+    }
+    .gender {
+        margin: 4%;
+    }
 }

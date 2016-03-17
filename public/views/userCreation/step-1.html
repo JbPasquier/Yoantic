@@ -1,27 +1,35 @@
 <div class='row' ng-controller='userCreationController'>
     <div class="col-xs-12 col-md-6 col-md-offset-3 createAccount navbar-inverse">
-        <h1 class="text-center">Inscris toi <small>et ça sera trop cool</small></h1>
+        <h1 class="text-center">Inscris toi
+            <small>et ça sera trop cool</small>
+        </h1>
         <form name="userCreationForm">
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope">
                         <div class="pictureUserCreation" ng-show="!$flow.files.length">
-                            <img src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' class='img-circle' />
+                            <img flow-btn src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' class='img-circle'/>
                         </div>
                         <div class="pictureUserCreation ng-hide" ng-show="$flow.files.length">
-                            <img flow-img="$flow.files[0]" style='max-width:100%;' class='img-circle'>
+                            <img flow-btn flow-img="$flow.files[0]" style='max-width:100%;' class='img-circle'>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center visible-lg">
                             <span class="btn btn-link" ng-show="!$flow.files.length" flow-btn>
-                                <b class='white'><span class='glyphicon glyphicon-download'></span> Modifier</b>
-                                <input type="file" style="visibility: hidden; position: absolute;">
+                                <b class='white'>
+                                    <span class='glyphicon glyphicon-download'></span>
+                                    Modifier</b>
+                                <input type="file" class='hide'>
                             </span>
                             <span class="btn btn-link ng-hide" ng-show="$flow.files.length" flow-btn>
-                                <b class='white'><span class='glyphicon glyphicon-download'></span> Modifier</b>
-                                <input type="file" style="visibility: hidden; position: absolute;">
+                                <b class='white'>
+                                    <span class='glyphicon glyphicon-download'></span>
+                                    Modifier</b>
+                                <input type="file" class='hide'>
                             </span>
                             <span class="btn btn-link ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                                <b class='white white-danger'><span class='glyphicon glyphicon-remove-circle'></span> </b>
+                                <b class='white white-danger'>
+                                    <span class='glyphicon glyphicon-remove-circle'></span>
+                                </b>
                             </span>
                         </div>
                     </div>
@@ -33,13 +41,12 @@
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">T'es d'où ?</span>
-                        <input required type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='datas["city"]'  ng-autocomplete='result_city' options="{types: '(cities)'}" />
+                        <input required type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='datas["city"]' ng-autocomplete='result_city' options="{types: '(cities)'}"/>
+                    </div>
+                    <div class="text-center label-step1" style='margin-top:20px'>
+                        <label><input type="checkbox" ng-model='datas["major18"]' required/> Je certifie être majeur et être en condition physique</label>
                     </div>
                 </div>
-            </div>
-            <label class="pull-right"><input type="checkbox" ng-model='datas["major18"]' required />
-                Je certifie être majeur et être en condition physique</label>
-            <div>
                 <button ng-disabled="userCreationForm.$invalid || datas.currentGender == 2" type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
                     Continuer
                 </button>
