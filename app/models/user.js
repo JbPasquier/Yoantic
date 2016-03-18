@@ -45,9 +45,22 @@ var User = {
 
     createAccount: function(req, res) {
         console.log(req.body);
-        var is_ok = 1;
+        var is_ok = false;
+        var roger;
 
-        if (req.body.nickname.match(/^[A-Za-z-]+$/) < 1)
+        var checkInput = function(input, regex){
+            if(!input || typeof input != 'string'){
+                roger += "Input invalid!";
+                return false;
+            }
+            if(!(new RegExp('^'+regex+'$').test(input))){
+                roger += input+": ne correspond pas au pattern";
+                return false;
+            }
+            return true;
+        }
+        
+        /*if (req.body.nickname.match(/^[A-Za-z0-9-]+$/) < 1)
             is_ok += "Le pseudo n'est pas valide\n";
         if (req.body.firstName.match(/^[A-Za-z-]+$/) < 1)
             is_ok += "Le nom n'est pas valide\n";
@@ -60,25 +73,46 @@ var User = {
         if(req.body.password.match(/[a-z]+/) < 1)
             is_ok += "Le mot de passe n'a pas au moins une minuscule\n";
         if(req.body.password.match(/[0-9]+/) < 1)
-            is_ok += "Le mot de passe n'a pas au moins chiffre\n";
+            is_ok += "Le mot de passe n'a pas au moins chiffre\n";*/
+        is_ok =
+            checkInput(req.body.nickname,"[A-Za-z0-9-]+")
+                &&
+            checkInput(req.body.firstName,"[\w\-]+")
+                &&
+            checkInput(req.body.lastName,"[\w\-]+")
+                &&
+            checkInput(req.body.email,"[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}")
+                &&
+            checkInput(req.body.password,"[A-Za-z0-9]+")
+                &&
+            checkInput(req.body.passwordConfirm,req.body.password)
+                &&
+            req.body.major18
+                &&
+            (req.body.currentGender == 0 || req.body.currentGender == 1)
+        ?
+            true
+        :
+            false;
+        
 
-        if(is_ok == 1){
+        if(is_ok == true){
             User.model.create({
                 nickname: req.body.nickname,
                 email: req.body.email,
                 password: req.body.password,
                 profile: {
-                    firstname: req.body.firstname,
-                    lastname: req.body.lastname,
+                    firstname: req.body.firstName,
+                    lastname: req.body.lastName,
                     birthday: req.body.birthday,
-                    sexe: req.body.sexe,
+                    sexe: req.body.currentGender,
                     city: req.body.city
                 }
             }, function() {
                 res.sendStatus(200);
             });
         } else {
-            console.log(is_ok);
+            console.log(roger);
             res.sendStatus(400);
         }
 
@@ -86,6 +120,7 @@ var User = {
 
     updateAccount: function(req, res) {
         User.model.findByIdAndUpdate(req.params.id, req.body.obj, function() {
+            
             res.sendStatus(200);
         });
     },

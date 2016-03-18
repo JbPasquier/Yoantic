@@ -1,0 +1,40 @@
+<div class='row'>
+    <div class="col-xs-12 col-md-6 col-md-offset-3 createAccount navbar-inverse">
+        <h1 class='text-center'>A propos
+            <small>de toi</small>
+        </h1>
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <form name="userCreationForm">
+                    <div class="form-group">
+                        <label class="control-label" for="convenant">Marié?</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon" ng-class='(userCreationForm.convenant.$dirty && userCreationForm.convenant.$error.pattern) ? "glyphicon-remove red" : datas.convenant ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
+                            </span>
+                            <input required type="text" class="form-control" name="convenant" id="convenant" placeholder="Ton pseudo" ng-model='datas["convenant"]' ng-maxlength="12" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false'/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <button ng-disabled="userCreationForm.$invalid" type="button" class="userCreationNextBtn btn btn-block btn-lg btn-white" ng-click='step("next")'>
+            Continuer
+        </button>
+    </div>
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-bottom navbar-userCreation">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>
+                <a ng-click='step(1)'>Etape 1</a>
+            </li>
+            <li>
+                <a ng-click='step(2)'>Etape 2</a>
+            </li>
+            <li class="active">
+                <a ng-click='step(3)'>Etape 2</a>
+            </li>
+        </ul>
+    </div>
+</nav>
