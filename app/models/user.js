@@ -60,20 +60,6 @@ var User = {
             return true;
         }
         
-        /*if (req.body.nickname.match(/^[A-Za-z0-9-]+$/) < 1)
-            is_ok += "Le pseudo n'est pas valide\n";
-        if (req.body.firstName.match(/^[A-Za-z-]+$/) < 1)
-            is_ok += "Le nom n'est pas valide\n";
-        if (req.body.lastName.match(/^[A-Za-z-]+$/) < 1)
-            is_ok += "Le prenom n'est pas valide\n";
-        if (req.body.email.match(/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/) < 1)
-            is_ok += "L'e-mail n'est pas valide\n";
-        if(req.body.password.match(/[A-Z]+/) < 1)
-            is_ok += "Le mot de passe n'a pas au moins majuscule\n";
-        if(req.body.password.match(/[a-z]+/) < 1)
-            is_ok += "Le mot de passe n'a pas au moins une minuscule\n";
-        if(req.body.password.match(/[0-9]+/) < 1)
-            is_ok += "Le mot de passe n'a pas au moins chiffre\n";*/
         is_ok =
             checkInput(req.body.nickname,"[A-Za-z0-9-]+")
                 &&
