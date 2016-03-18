@@ -10,7 +10,7 @@ function config($routeProvider) {
         })
         .when('/userCreation/step-3', {
             templateUrl: 'views/userCreation/step-3.html',
-            controller: userCreationController
+            controller: userUpdateController
         })
         .when('/join-us', {
             templateUrl: 'views/userCreation/joinus.html',
@@ -23,4 +23,5 @@ function config($routeProvider) {
 angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete', 'flow'])
     .config(config)
     .controller('userCreationController', userCreationController)
+    .controller('userUpdateController', userUpdateController)
     .service('userService', userService);

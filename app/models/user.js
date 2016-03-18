@@ -94,8 +94,8 @@ var User = {
                     sexe: req.body.currentGender,
                     city: req.body.city
                 }
-            }, function() {
-                res.sendStatus(200);
+            }, function(toto,gogol) {
+                res.status(200).send({id : gogol._id});
             });
         } else {
             console.log(roger);
@@ -108,6 +108,12 @@ var User = {
         User.model.findByIdAndUpdate(req.params.id, req.body.obj, function() {
             
             res.sendStatus(200);
+        });
+    },
+
+    findUserName: function(req, res) {
+        User.model.find({_id: req.params.id},function(err, data) {
+            res.send(data);
         });
     },
 
