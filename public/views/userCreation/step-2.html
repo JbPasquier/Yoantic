@@ -46,11 +46,11 @@
                             </span>
                             <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/"/>
                         </div>
-                        <div class="input-group">
+                        <div class="input-group" ng-show="datas.password.length > 4 && !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern)">
                             <span class="input-group-addon">
-                                <span class="glyphicon" ng-class='datas.password != datas.passwordConfirm && datas.password.length > 5 ? "glyphicon-remove red" : datas.passwordConfirm ? "glyphicon-ok green" : !(userCreationForm.passwordConfirm.$dirty && userCreationForm.passwordConfirm.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
+                                <span class="glyphicon" ng-class='datas.password != datas.passwordConfirm && datas.password.length > 4 ? "glyphicon-remove red" : datas.passwordConfirm ? "glyphicon-ok green" : !(userCreationForm.passwordConfirm.$dirty && userCreationForm.passwordConfirm.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Ton code de carte bleue" ng-model='datas["passwordConfirm"]' ng-pattern="/^[A-Za-z0-9]+$/"/>
+                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe" ng-model='datas["passwordConfirm"]' ng-pattern="new RegExp('^'+datas.password+'$')" />
                         </div>
                     </div>
                     <ul>

@@ -22,6 +22,7 @@
     "express": "^4.13.4",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.7",
+    "piping": "^0.3.0",
     "morgan": "^1.7.0"
   }
 }

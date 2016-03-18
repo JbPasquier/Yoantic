@@ -1,4 +1,5 @@
 // set up ======================================================================
+require('piping');
 var http			= require('http');
 var express			= require('express');
 var app				= express();								// create our app w/ express
@@ -26,4 +27,3 @@ process.on('SIGINT', function() {
 // listen (start app with node server.js) ======================================
 server.listen(port);
 console.log('App listening on port ' + port);
-	
