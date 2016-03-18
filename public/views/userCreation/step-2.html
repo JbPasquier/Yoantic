@@ -21,13 +21,13 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='(userCreationForm.firstName.$dirty && userCreationForm.firstName.$error.pattern) ? "glyphicon-remove red" : datas.firstName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
-                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
+                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false'/>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='(userCreationForm.lastName.$dirty && userCreationForm.lastName.$error.pattern) ? "glyphicon-remove red" : datas.lastName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
-                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[A-Za-z-]+$/" ng-trim='false'/>
+                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false'/>
 
                         </div>
                         <div class="input-group">
