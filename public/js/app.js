@@ -8,6 +8,10 @@ function config($routeProvider) {
             templateUrl: 'views/userCreation/step-2.html',
             controller: userCreationController
         })
+        .when('/userCreation/step-3', {
+            templateUrl: 'views/userCreation/step-3.html',
+            controller: userCreationController
+        })
         .when('/join-us', {
             templateUrl: 'views/userCreation/joinus.html',
             controller: userCreationController

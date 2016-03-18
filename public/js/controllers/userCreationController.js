@@ -21,6 +21,8 @@ function userCreationController($scope, $http, userService, $location) {
             $scope.datas.current++;
             if($scope.datas.current == 3) {
                 userService.createAccount($scope.datas);
+            } else if($scope.datas.current == 4){
+                userService.updateAccount($scope.datas["convenant"]);
             }
             $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + $scope.datas.current + '.jpg")');
         } else {
