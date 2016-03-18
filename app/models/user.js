@@ -46,7 +46,7 @@ var User = {
     createAccount: function(req, res) {
         console.log(req.body);
         var is_ok = false;
-        var roger;
+        var roger = "";
 
         var checkInput = function(input, regex){
             if(!input || typeof input != 'string'){
@@ -54,7 +54,7 @@ var User = {
                 return false;
             }
             if(!(new RegExp('^'+regex+'$').test(input))){
-                roger += input+": ne correspond pas au pattern";
+                roger += input+": ne correspond pas au pattern:"+regex+"\n";
                 return false;
             }
             return true;
@@ -77,11 +77,11 @@ var User = {
         is_ok =
             checkInput(req.body.nickname,"[A-Za-z0-9-]+")
                 &&
-            checkInput(req.body.firstName,"[\w\-]+")
+            checkInput(req.body.firstName,"[\\w\\-]+")
                 &&
-            checkInput(req.body.lastName,"[\w\-]+")
+            checkInput(req.body.lastName,"[\\w\\-]+")
                 &&
-            checkInput(req.body.email,"[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}")
+            checkInput(req.body.email,"[\\w\\-\\+]+(\\.[\\w\\-]+)*@[\\w\\-]+(\\.[\\w\\-]+)*\\.[\\w\\-]{2,4}")
                 &&
             checkInput(req.body.password,"[A-Za-z0-9]+")
                 &&
