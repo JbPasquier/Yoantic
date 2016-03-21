@@ -5,8 +5,8 @@ function userService($http) {
         getUserById : function(id) {
             return $http.get('/user/' + id);
         },
-        updateAccount : function(id, data){
-            return $http.post('/user/' + id, {obj:data});
+        updateAccount : function(id, objProfile, objSearch){
+            return $http.post('/user/' + id, {objProfile:objProfile,objSearch:objSearch});
         },
         createAccount : function(data){
             return $http.post('/user', data).success(function(dat){

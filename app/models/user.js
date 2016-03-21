@@ -27,6 +27,15 @@ var userSchema = new mongoose.Schema({
         origin: String,
     },
     search: {
+        convenant: String,
+        married: String,
+        children: String,
+        wantChildren: String,
+        height: String,
+        weight: String,
+        hairLenght: String,
+        hairColor: String,
+        origin: String,
         ageDiffMin: Number,
         ageDiffMax: Number,
         boobsMeasurementMin: Number,
@@ -98,8 +107,9 @@ var User = {
     },
     updateAccount: function(req, res) {
         User.model.find({_id:req.params.id}, function(err, data) {
-            Object.keys(req.body.obj).forEach(function(key) {
-                data[0].profile[key] = req.body.obj[key];
+            Object.keys(req.body.objProfile).forEach(function(key) {
+                data[0].profile[key] = req.body.objProfile[key];
+                data[0].search[key] = req.body.objSearch[key];
             });
             data[0].save();
         });

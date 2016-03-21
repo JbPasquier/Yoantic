@@ -3,6 +3,30 @@ function userUpdateController($scope, $http, userService, $location) {
     $scope.databaseOrder = {
         3: {
             name: 'convenant'
+        },
+        4: {
+            name: 'married'
+        },
+        5: {
+            name: 'children'
+        },
+        6: {
+            name: 'wantChildren'
+        },
+        7: {
+            name: 'height'
+        },
+        8: {
+            name: 'weight'
+        },
+        9: {
+            name: 'hairLenght'
+        },
+        10: {
+            name: 'hairColor'
+        },
+        10: {
+            name: 'origin'
         }
     };
     if(!$scope.datas) $scope.datas = userService.datas;
@@ -12,9 +36,10 @@ function userUpdateController($scope, $http, userService, $location) {
         $scope.inputVal = $scope.datas.profile[$scope.databaseOrder[$scope.datas.current].name] || '';
     });
     $scope.update = function() {
-        var obj = {};
-        obj[$scope.databaseOrder[$scope.datas.current].name] = $scope.inputVal;
-        userService.updateAccount($scope.datas._id,obj);
+        var objProfile = {}, objSearch = {};
+        objProfile[$scope.databaseOrder[$scope.datas.current].name] = $scope.inputProfileVal;
+        objSearch[$scope.databaseOrder[$scope.datas.current].name] = $scope.inputSearchVal;
+        userService.updateAccount($scope.datas._id,objProfile,objSearch);
     };
     if (!$scope.datas.current) $location.path('/');
     $scope.step = function(where) {
