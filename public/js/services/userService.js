@@ -2,15 +2,15 @@
 function userService($http) {
     return {
         datas: {},
-        getUserName : function(id) {
+        getUserById : function(id) {
             return $http.get('/user/' + id);
         },
         updateAccount : function(id, data){
-            return $http.post('/user/' + id, data);
+            return $http.post('/user/' + id, {obj:{profile:data}});
         },
         createAccount : function(data){
-            return $http.post('/user', data).success(function(dat){  
-                data.id = dat.id;
+            return $http.post('/user', data).success(function(dat){
+                data._id = dat.id;
             });
         },
         delete : function(id) {

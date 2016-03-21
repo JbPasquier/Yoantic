@@ -48,41 +48,32 @@ var User = {
         var is_ok = false;
         var roger = "";
 
-        var checkInput = function(input, regex){
-            if(!input || typeof input != 'string'){
+        var checkInput = function(input, regex) {
+            if (!input || typeof input != 'string') {
                 roger += "Input invalid!";
                 return false;
             }
-            if(!(new RegExp('^'+regex+'$').test(input))){
-                roger += input+": ne correspond pas au pattern:"+regex+"\n";
+            if (!(new RegExp('^' + regex + '$').test(input))) {
+                roger += input + ": ne correspond pas au pattern:" + regex + "\n";
                 return false;
             }
             return true;
-        }
-        
-        is_ok =
-            checkInput(req.body.nickname,"[A-Za-z0-9-]+")
-                &&
-            checkInput(req.body.firstName,"[\\w\\-]+")
-                &&
-            checkInput(req.body.lastName,"[\\w\\-]+")
-                &&
-            checkInput(req.body.email,"[\\w\\-\\+]+(\\.[\\w\\-]+)*@[\\w\\-]+(\\.[\\w\\-]+)*\\.[\\w\\-]{2,4}")
-                &&
-            checkInput(req.body.password,"[A-Za-z0-9]+")
-                &&
-            checkInput(req.body.passwordConfirm,req.body.password)
-                &&
-            req.body.major18
-                &&
-            (req.body.currentGender == 0 || req.body.currentGender == 1)
-        ?
-            true
-        :
-            false;
-        
+        };
 
-        if(is_ok == true){
+        is_ok =
+            checkInput(req.body.nickname, "[A-Za-z0-9-]+") &&
+            checkInput(req.body.firstName, "[\\w\\-]+") &&
+            checkInput(req.body.lastName, "[\\w\\-]+") &&
+            checkInput(req.body.email, "[\\w\\-\\+]+(\\.[\\w\\-]+)*@[\\w\\-]+(\\.[\\w\\-]+)*\\.[\\w\\-]{2,4}") &&
+            checkInput(req.body.password, "[A-Za-z0-9]+") &&
+            checkInput(req.body.passwordConfirm, req.body.password) &&
+            req.body.major18 &&
+            (req.body.currentGender === 0 ||  req.body.currentGender === 1) ?
+            true :
+            false;
+
+
+        if (is_ok === true) {
             User.model.create({
                 nickname: req.body.nickname,
                 email: req.body.email,
@@ -94,8 +85,10 @@ var User = {
                     sexe: req.body.currentGender,
                     city: req.body.city
                 }
-            }, function(toto,gogol) {
-                res.status(200).send({id : gogol._id});
+            }, function(toto, gogol) {
+                res.status(200).send({
+                    id: gogol._id
+                });
             });
         } else {
             console.log(roger);
@@ -105,14 +98,17 @@ var User = {
     },
 
     updateAccount: function(req, res) {
-        User.model.findByIdAndUpdate(req.params.id, req.body.obj, function() {
-            
+        debugger;
+        console.log(req.body.obj);
+        User.model.update({_id:req.params.id}, { profile: req.body.obj.profile}, function() {
             res.sendStatus(200);
         });
     },
 
     findUserName: function(req, res) {
-        User.model.find({_id: req.params.id},function(err, data) {
+        User.model.find({
+            _id: req.params.id
+        }, function(err, data) {
             res.send(data);
         });
     },
