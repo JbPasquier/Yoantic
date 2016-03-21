@@ -96,12 +96,12 @@ var User = {
         }
 
     },
-
     updateAccount: function(req, res) {
-        debugger;
-        console.log(req.body.obj);
-        User.model.update({_id:req.params.id}, { profile: req.body.obj.profile}, function() {
-            res.sendStatus(200);
+        User.model.find({_id:req.params.id}, function(err, data) {
+            Object.keys(req.body.obj).forEach(function(key) {
+                data[0].profile[key] = req.body.obj[key];
+            });
+            data[0].save();
         });
     },
 

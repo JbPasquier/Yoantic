@@ -2,7 +2,7 @@
 function userUpdateController($scope, $http, userService, $location) {
     $scope.databaseOrder = {
         3: {
-            name: 'covenant'
+            name: 'convenant'
         }
     };
     if(!$scope.datas) $scope.datas = userService.datas;
