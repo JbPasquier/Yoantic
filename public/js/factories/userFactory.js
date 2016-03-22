@@ -27,12 +27,12 @@ function userFactory() {
             10: {
                 name: 'hairColor'
             },
-            10: {
+            11: {
                 name: 'origin'
             }
         },
         datas: {
             id : -1
         },
-    }
-};
+    };
+}

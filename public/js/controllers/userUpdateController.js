@@ -1,6 +1,6 @@
 // MAIN CONTROLLER
 function userUpdateController($scope, $http, userService, userNavBarService, userFactory, $location) {
-    if (userFactory.prevCurrent == 0 && userFactory.current == 0 && $location.url() != '/userCreation/step-0') {
+    if (userFactory.prevCurrent === 0 && userFactory.current === 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
         if(userFactory.current == 3 && userFactory.prevCurrent == 2) {
@@ -17,9 +17,9 @@ function userUpdateController($scope, $http, userService, userNavBarService, use
         $scope.save = function() {
             userFactory.datas.inputProfileVal = $scope.inputProfileVal;
             userFactory.datas.inputSearchVal = $scope.inputSearchVal;
-        }
+        };
         $scope.step = function (e) {
             userNavBarService.step(e);
-        }
+        };
     }
 }
