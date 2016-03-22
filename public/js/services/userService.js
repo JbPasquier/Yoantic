@@ -38,9 +38,7 @@ function userService($http) {
             return $http.post('/user/' + id, {objProfile:objProfile,objSearch:objSearch});
         },
         createAccount : function(data){
-            return $http.post('/user', data).success(function(dat){
-                data._id = dat.id;
-            });
+            return $http.post('/user', data).then(function(e){return e.data.id});
         },
         delete : function(id) {
             return $http.delete('/user/' + id);

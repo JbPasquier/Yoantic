@@ -1,8 +1,6 @@
 // MAIN CONTROLLER
 function userCreationController($scope, $http, userService, userNavBarService, $location) {
     if (userNavBarService.prevCurrent == 0 && userNavBarService.current == 0 && $location.url() != '/userCreation/step-0') {
-        console.log(userNavBarService.current);
-        console.log(userNavBarService.prevCurrent);
         $location.path('/');
     } else {
         $scope.datas = userService.datas;

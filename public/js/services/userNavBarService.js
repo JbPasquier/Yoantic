@@ -4,12 +4,11 @@ function userNavBarService($location, userService) {
         current : 0,
         prevCurrent : 0,
         step : function(where) {
-            console.log(this.current);
             if (where == 'next') {
                 this.prevCurrent = this.current;
                 this.current++;
                 if(this.current == 3) {
-                    userService.datas._id = userService.createAccount(userService.datas);
+                    console.log(userService.createAccount(userService.datas));
                 } else if (this.current > 3) {
                     userService.update(this.current);
                 }

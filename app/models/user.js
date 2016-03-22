@@ -94,9 +94,9 @@ var User = {
                     sexe: req.body.currentGender,
                     city: req.body.city
                 }
-            }, function(toto, gogol) {
-                res.status(200).send({
-                    id: gogol._id
+            }, function(err, data) {
+                res.send({
+                    id: data._id
                 });
             });
         } else {
