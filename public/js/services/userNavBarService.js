@@ -5,9 +5,7 @@ function userNavBarService($location, userService, userFactory) {
             if (where == 'next') {
                 userFactory.prevCurrent = userFactory.current;
                 userFactory.current++;
-                if(userFactory.current == 3) {
-                    userService.createAccount(userFactory.datas);
-                } else if (userFactory.current > 3) {
+                if (userFactory.current > 3) {
                     userService.update(userFactory.current);
                 }
             } else {

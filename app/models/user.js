@@ -119,7 +119,7 @@ var User = {
         User.model.find({
             _id: req.params.id
         }, function(err, data) {
-            res.send(data);
+            res.status(200).send(data);
         });
     },
 

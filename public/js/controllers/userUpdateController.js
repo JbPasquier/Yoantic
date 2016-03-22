@@ -3,15 +3,21 @@ function userUpdateController($scope, $http, userService, userNavBarService, use
     if (userFactory.prevCurrent == 0 && userFactory.current == 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
-        userService.getUserById(userFactory.datas.id).then(function (e) {
-            $scope.datas = e.data[0];
-            $scope.inputProfileVal = $scope.datas.profile[userFactory.databaseOrder[userFactory.current].name] || '';
-            $scope.inputSearcheVal = $scope.datas.shearch[userFactory.databaseOrder[userFactory.current].name] || '';
-        });
-        userFactory.datas = $scope.datas;
-        debugger;
-        userFactory.datas.inputProfileVal = $scope.inputProfileVal;
-        userFactory.datas.inputSearchVal = $scope.inputSearchVal;
+        if(userFactory.current == 3 && userFactory.prevCurrent == 2) {
+            userService.createAccount(userFactory.datas).then(function(e) {
+                userService.getUserById(userFactory.datas.id).then(function (e) {
+                    userFactory.datas = e.data[0];
+                });
+            });
+        } else {
+            userService.getUserById(userFactory.datas._id).then(function (e) {
+                userFactory.datas = e.data[0];
+            });
+        }
+        $scope.save = function() {
+            userFactory.datas.inputProfileVal = $scope.inputProfileVal;
+            userFactory.datas.inputSearchVal = $scope.inputSearchVal;
+        }
         $scope.step = function (e) {
             userNavBarService.step(e);
         }
