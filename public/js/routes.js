@@ -1,5 +1,5 @@
 function routes($routeProvider) {
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 13; i++) {
         if (i < 3) {
             $routeProvider.when('/userCreation/step-' + i, {
                 templateUrl: 'views/userCreation/step-' + i + '.html',
