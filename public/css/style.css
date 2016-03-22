@@ -5,10 +5,10 @@ body {
     color: #fff;
 }
 * {
-    font-size:18px;
+    font-size: 18px;
 }
 h1 {
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 .createAccount {
     padding: 40px;
@@ -46,23 +46,23 @@ h1 {
     color: #fff;
 }
 .red {
-    color:red;
+    color: red;
 }
 .green {
-    color:green;
+    color: green;
 }
 .white {
-    color:white;
-    padding-left:5px;
+    color: white;
+    padding-left: 5px;
 }
 .white span {
-    font-size:22px;
+    font-size: 22px;
     color: cyan;
 }
 .white-danger {
     list-style-type: none;
-    color:white;
-    padding-left:5px;
+    color: white;
+    padding-left: 5px;
 }
 .white-danger span {
     color: red;
@@ -93,29 +93,28 @@ input.ng-invalid.ng-not-empty {
 .userCreationNextBtn {
     position: absolute;
     bottom: 3%;
-    right:1%;
-    width:15%;
+    right: 1%;
+    width: 15%;
 }
 @media (max-width:900px) {
     .navbar-userCreation {
-        display:none;
+        display: none;
     }
     .pictureUserCreation {
         text-align: center;
     }
     .createAccount {
-        padding-bottom:30px;
+        padding-bottom: 30px;
     }
-
     .userCreationNextBtn {
-        position:relative;
-        margin:0;
-        right:0;
-        bottom:0;
-        width:100%;
+        position: relative;
+        margin: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
     }
     .label-step1 {
-        margin-bottom:40px;
+        margin-bottom: 40px;
     }
     .gender {
         margin: 4%;

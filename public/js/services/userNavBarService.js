@@ -1,11 +1,11 @@
 // USER SERVICE
 function userNavBarService($location, userService, userFactory) {
     return {
-        step : function(where) {
+        step: function(where) {
             if (where == 'next') {
                 userFactory.prevCurrent = userFactory.current;
                 userFactory.current++;
-                if (userFactory.current > 3) {
+                if (userFactory.current > 3)  {
                     userService.update();
                 }
             } else {

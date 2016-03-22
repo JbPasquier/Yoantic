@@ -1,8 +1,8 @@
 function userFactory() {
     return {
-        current : 0,
-        prevCurrent : 0,
-        databaseOrder : {
+        current: 0,
+        prevCurrent: 0,
+        databaseOrder: {
             3: {
                 name: 'convenant'
             },
@@ -32,7 +32,7 @@ function userFactory() {
             }
         },
         datas: {
-            id : -1
+            id: -1
         },
     };
 }

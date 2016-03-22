@@ -50,7 +50,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='datas.password != datas.passwordConfirm && datas.password.length > 4 ? "glyphicon-remove red" : datas.passwordConfirm ? "glyphicon-ok green" : !(userCreationForm.passwordConfirm.$dirty && userCreationForm.passwordConfirm.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe" ng-model='datas["passwordConfirm"]' ng-pattern="pattern" />
+                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe" ng-model='datas["passwordConfirm"]' ng-pattern="pattern"/>
                         </div>
                     </div>
                     <ul>
