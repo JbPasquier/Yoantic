@@ -15,10 +15,10 @@ function userService($http, userFactory) {
         delete : function(id) {
             return $http.delete('/user/' + id);
         },
-        update : function(current) {
+        update : function() {
             var objProfile = {}, objSearch = {};
-            objProfile[userFactory.databaseOrder[current].name] = userFactory.datas.inputProfileVal;
-            objSearch[userFactory.databaseOrder[current].name] = userFactory.datas.inputSearchVal;
+            objProfile[userFactory.databaseOrder[userFactory.prevCurrent].name] = userFactory.datas.inputProfileVal;
+            objSearch[userFactory.databaseOrder[userFactory.prevCurrent].name] = userFactory.datas.inputSearchVal;
             this.updateAccount(userFactory.datas._id,objProfile,objSearch);
         }
     };

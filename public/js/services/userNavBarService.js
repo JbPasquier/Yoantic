@@ -6,7 +6,7 @@ function userNavBarService($location, userService, userFactory) {
                 userFactory.prevCurrent = userFactory.current;
                 userFactory.current++;
                 if (userFactory.current > 3) {
-                    userService.update(userFactory.current);
+                    userService.update();
                 }
             } else {
                 userFactory.prevCurrent = userFactory.current;
