@@ -3,7 +3,7 @@ function userUpdateController($scope, $http, userService, userNavBarService, $lo
     if (userNavBarService.prevCurrent == 0 && userNavBarService.current == 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
-        userService.getUserById(userService.datas._id).then(function (e) {
+        userService.getUserById(userService.datas.id).then(function (e) {
             $scope.datas = e.data[0];
             $scope.inputProfileVal = $scope.datas.profile[userService.databaseOrder[userNavBarService.current].name] || '';
             $scope.inputSearcheVal = $scope.datas.shearch[userService.databaseOrder[userNavBarService.current].name] || '';
