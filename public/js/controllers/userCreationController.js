@@ -1,9 +1,9 @@
 // MAIN CONTROLLER
-function userCreationController($scope, $http, userService, userNavBarService, $location) {
-    if (userNavBarService.prevCurrent == 0 && userNavBarService.current == 0 && $location.url() != '/userCreation/step-0') {
+function userCreationController($scope, $http, userService, userNavBarService, userFactory, $location) {
+    if (userFactory.prevCurrent == 0 && userFactory.current == 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
-        $scope.datas = userService.datas;
+        $scope.datas = userFactory.datas;
             $scope.datas = {
                 currentGender: 1,
                 nickname: 'a',
@@ -15,6 +15,7 @@ function userCreationController($scope, $http, userService, userNavBarService, $
                 lastName: 'a',
                 email: 'a@a.aa'
             };
+        $scope.pattern = new RegExp('^'+$scope.datas.password+'$');
         $scope.isValidPassword = function (regex) { //isValidPassword('[A-Z]+')
             if($scope.datas.password != '') {
                 return $scope.datas.password ? !(new RegExp('^.*' + regex + '.*$').test($scope.datas.password)) : false;
@@ -31,7 +32,7 @@ function userCreationController($scope, $http, userService, userNavBarService, $
                 $scope.datas.currentGender = gender;
             }
         };
-        userService.datas = $scope.datas;
+        userFactory.datas = $scope.datas;
         $scope.step = function (e) {
             userNavBarService.step(e);
         }

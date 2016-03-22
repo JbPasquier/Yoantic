@@ -1,24 +1,21 @@
 // USER SERVICE
-function userNavBarService($location, userService) {
+function userNavBarService($location, userService, userFactory) {
     return {
-        current : 0,
-        prevCurrent : 0,
-        id : -1,
         step : function(where) {
             if (where == 'next') {
-                this.prevCurrent = this.current;
-                this.current++;
-                if(this.current == 3) {
-                    userService.createAccount(userService.datas);
-                } else if (this.current > 3) {
-                    userService.update(this.current);
+                userFactory.prevCurrent = userFactory.current;
+                userFactory.current++;
+                if(userFactory.current == 3) {
+                    userService.createAccount(userFactory.datas);
+                } else if (userFactory.current > 3) {
+                    userService.update(userFactory.current);
                 }
             } else {
-                this.prevCurrent = this.current;
-                this.current = where;
+                userFactory.prevCurrent = userFactory.current;
+                userFactory.current = where;
             }
-            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + this.current + '.jpg")');
-            var path = '/userCreation/step-' + this.current;
+            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + userFactory.current + '.jpg")');
+            var path = '/userCreation/step-' + userFactory.current;
             $location.path(path);
         }
     };

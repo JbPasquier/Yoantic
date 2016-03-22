@@ -1,36 +1,6 @@
 // USER SERVICE
-function userService($http) {
+function userService($http, userFactory) {
     return {
-        databaseOrder : {
-            3: {
-                name: 'convenant'
-            },
-            4: {
-                name: 'married'
-            },
-            5: {
-                name: 'children'
-            },
-            6: {
-                name: 'wantChildren'
-            },
-            7: {
-                name: 'height'
-            },
-            8: {
-                name: 'weight'
-            },
-            9: {
-                name: 'hairLenght'
-            },
-            10: {
-                name: 'hairColor'
-            },
-            10: {
-                name: 'origin'
-            }
-        },
-        datas: {},
         getUserById : function(id) {
             return $http.get('/user/' + id);
         },
@@ -39,7 +9,7 @@ function userService($http) {
         },
         createAccount : function(data){
             return $http.post('/user', data).then(function(e){
-                userService.datas.id = e.data.id;
+                userFactory.datas.id = e.data.id;
             });
         },
         delete : function(id) {
@@ -47,9 +17,9 @@ function userService($http) {
         },
         update : function(current) {
             var objProfile = {}, objSearch = {};
-            objProfile[this.databaseOrder[current].name] = this.datas.inputProfileVal;
-            objSearch[this.databaseOrder[current].name] = this.datas.inputSearchVal;
-            this.updateAccount(this.datas._id,objProfile,objSearch);
+            objProfile[userFactory.databaseOrder[current].name] = userFactory.datas.inputProfileVal;
+            objSearch[userFactory.databaseOrder[current].name] = userFactory.datas.inputSearchVal;
+            this.updateAccount(userFactory.datas._id,objProfile,objSearch);
         }
     };
 }

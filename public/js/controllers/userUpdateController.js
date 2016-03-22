@@ -1,16 +1,17 @@
 // MAIN CONTROLLER
-function userUpdateController($scope, $http, userService, userNavBarService, $location) {
-    if (userNavBarService.prevCurrent == 0 && userNavBarService.current == 0 && $location.url() != '/userCreation/step-0') {
+function userUpdateController($scope, $http, userService, userNavBarService, userFactory, $location) {
+    if (userFactory.prevCurrent == 0 && userFactory.current == 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
-        userService.getUserById(userService.datas.id).then(function (e) {
+        userService.getUserById(userFactory.datas.id).then(function (e) {
             $scope.datas = e.data[0];
-            $scope.inputProfileVal = $scope.datas.profile[userService.databaseOrder[userNavBarService.current].name] || '';
-            $scope.inputSearcheVal = $scope.datas.shearch[userService.databaseOrder[userNavBarService.current].name] || '';
+            $scope.inputProfileVal = $scope.datas.profile[userFactory.databaseOrder[userFactory.current].name] || '';
+            $scope.inputSearcheVal = $scope.datas.shearch[userFactory.databaseOrder[userFactory.current].name] || '';
         });
-        userService.datas = $scope.datas;
-        userService.datas.inputProfileVal = $scope.inputProfileVal;
-        userService.datas.inputSearchVal = $scope.inputSearchVal;
+        userFactory.datas = $scope.datas;
+        debugger;
+        userFactory.datas.inputProfileVal = $scope.inputProfileVal;
+        userFactory.datas.inputSearchVal = $scope.inputSearchVal;
         $scope.step = function (e) {
             userNavBarService.step(e);
         }

@@ -3,4 +3,5 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete', 'flow'])
     .controller('userCreationController', userCreationController)
     .controller('userUpdateController', userUpdateController)
     .service('userService', userService)
-    .service('userNavBarService', userNavBarService);
+    .service('userNavBarService', userNavBarService)
+    .factory('userFactory', userFactory);
