@@ -12,7 +12,6 @@ function userNavBarService($location, userService, userFactory) {
                 userFactory.prevCurrent = userFactory.current;
                 userFactory.current = where;
             }
-            $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + userFactory.current + '.jpg")');
             var path = '/userCreation/step-' + userFactory.current;
             $location.path(path);
         }

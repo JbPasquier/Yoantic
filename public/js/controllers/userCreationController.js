@@ -3,6 +3,8 @@ function userCreationController($scope, $http, userService, userNavBarService, u
     if (userFactory.prevCurrent === 0 && userFactory.current === 0 && $location.url() != '/userCreation/step-0') {
         $location.path('/');
     } else {
+        $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + $location.url().split('-')[1] + '.jpg")');
+        userFactory.current = $location.url().split('-')[1];
         $scope.datas = userFactory.datas;
         $scope.datas = {
             currentGender: 1,

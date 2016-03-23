@@ -4,18 +4,37 @@ body {
     background-size: cover;
     color: #fff;
 }
+
+#fademe {
+    position:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
 * {
     font-size: 18px;
 }
 h1 {
     margin-bottom: 30px;
 }
-.createAccount {
+.createAccountOne {
     padding: 40px;
     min-height: 600px;
     margin-top: 5%;
     opacity: .85;
     margin-bottom: 5%;
+}
+.createAccount {
+    padding: 40px;
+    min-height: 400px;
+    margin-top: 5%;
+    opacity: .60;
+    margin-bottom: 5%;
+    background-color: #131625;
 }
 .pictureUserCreation {
     min-height: 250px;
@@ -44,6 +63,28 @@ h1 {
     border: none;
     font-size: 18px;
     color: #fff;
+}
+.question{
+    font-size: 24px;
+    text-align: right;
+    font-weight: normal;
+}
+.customSelect{
+    list-style: none;
+    border-left: 3px solid teal;
+    padding: 8px 20px;
+}
+.customSelect li{
+    cursor: pointer;
+    font-size: 18px;
+    text-transform:uppercase;
+}
+.customSelect li:hover{
+    color: teal;
+}
+.customSelect li.active{
+    color: teal;
+    font-weight: bolder;
 }
 .red {
     color: red;

@@ -3,48 +3,46 @@
 
         <form name="userCreationForm">
             <div class="col-xs-12 col-md-5 createAccount navbar-inverse">
-                <h1 class='text-center'>A propos
-                    <small>de toi</small>
+                <h1 class='text-center'>A propos de toi
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-1">
-                        <div class="form-group">
-                            <label class="control-label" for="inputProfileVal">Es-tu prêt à t'engager dans une relation ?</label>
-                            <select required class="form-control" name="inputProfileVal" id="inputProfileVal" ng-model='inputProfileVal'>
-                                <option>Choisissez...</option>
-                                <option value="Souhaites s'engager">C'est mon souhait</option>
-                                <option value='Laisses faire le hasard'>Laissons faire le hasard</option>
-                                <option value='Je ne veux pas'>Pas du tout</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Es-tu prêt à t'engager dans une relation ?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputProfileVal=='Souhaites s\'engager'?'active':'notactive'" ng-click="changeInputProfileVal('Souhaites s\'engager')">C'est mon souhait</li>
+                            <li ng-class="inputProfileVal=='Laisse faire le hasard'?'active':'notactive'" ng-click="changeInputProfileVal('Laisse faire le hasard')">Laissons faire le hasard</li>
+                            <li ng-class="inputProfileVal=='Ne veut pas'?'active':'notactive'" ng-click="changeInputProfileVal('Ne veut pas')">Pas du tout</li>
+                            <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 col-md-offset-2 createAccount navbar-inverse">
-                <h1 class='text-center'>Tu cherches
-                    <small>qui, quoi ?</small>
+                <h1 class='text-center'>A propos de l'autre
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-2">
-                        <div class="form-group">
-                            <label class="control-label" for="inputSearchVal">Est-il prêt ?</label>
-                            <select required class="form-control" name="inputSearchVal" id="inputSearchVal" ng-model='inputSearchVal'>
-                                <option>Choisissez...</option>
-                                <option value="Souhaites s'engager">C'est mon souhait</option>
-                                <option value='Laisses faire le hasard'>Laissons faire le hasard</option>
-                                <option value='Je ne veux pas'>Pas du tout</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Est-il prêt à s'engager ?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputSearchVal=='Souhaites s\'engager'?'active':'notactive'" ng-click="changeInputSearchVal('Souhaites s\'engager')">C'est son souhait</li>
+                            <li ng-class="inputSearchVal=='Laisse faire le hasard'?'active':'notactive'" ng-click="changeInputSearchVal('Laisse faire le hasard')">Laisse faire le hasard</li>
+                            <li ng-class="inputSearchVal=='Ne veut pas'?'active':'notactive'" ng-click="changeInputSearchVal('Ne veut pas')">Pas du tout</li>
+                            <li ng-class="inputSearchVal==''?'active':'notactive'" ng-click="changeInputSearchVal('')">Je m'en fiche</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-            <button ng-disabled="userCreationForm.$invalid" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
-                Continuer
-            </button>
-        </div>
+                <button ng-disabled="inputProfileVal == 'non' || inputSearchVal == 'non'" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
+                    Continuer
+                </button>
+            </div>
         </form>
     </div>
 </div>
+<div id="fademe"></div>
+{{changeBg()}}
