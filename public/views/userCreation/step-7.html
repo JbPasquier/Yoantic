@@ -2,49 +2,45 @@
     <div class="col-md-10 col-md-offset-1">
         <form name="userCreationForm">
             <div class="col-xs-12 col-md-5 createAccount navbar-inverse">
-                <h1 class='text-center'>A propos
-                    <small>de toi</small>
+                <h1 class='text-center'>A propos de toi
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-1">
-                        <div class="form-group">
-                            <label class="control-label" for="inputProfileVal">Ta taille (oyo, qu'est ce qu'elle a sous son chapeau...)</label>
-                            <select required class="form-control" name="inputProfileVal" id="inputProfileVal" ng-model='inputProfileVal'>
-                                <option>Choisissez...</option>
-                                <option value="+200">+200</option>
-                                <option value="180-200">180-200</option>
-                                <option value="170-180">170-180</option>
-                                <option value="150-170">150-170</option>
-                                <option value="Nain">Nain</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Ta taille (oyo, qu'est ce qu'elle a sous son chapeau...)</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputProfileVal=='+200'?'active':'notactive'" ng-click="changeInputProfileVal('+200')">+200</li>
+                            <li ng-class="inputProfileVal=='180-200'?'active':'notactive'" ng-click="changeInputProfileVal('180-200')">180-200</li>
+                            <li ng-class="inputProfileVal=='170-180'?'active':'notactive'" ng-click="changeInputProfileVal('170-180')">170-180</li>
+                            <li ng-class="inputProfileVal=='150-170'?'active':'notactive'" ng-click="changeInputProfileVal('150-170')">150-170</li>
+                            <li ng-class="inputProfileVal=='Nain'?'active':'notactive'" ng-click="changeInputProfileVal('Nain')">Nain</li>
+                            <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 col-md-offset-2 createAccount navbar-inverse">
-                <h1 class='text-center'>Tu cherches
-                    <small>qui, quoi ?</small>
+                <h1 class='text-center'>A propos de l'autre
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-2">
-                        <div class="form-group">
-                            <label class="control-label" for="inputSearchVal">Sa taille</label>
-                            <select required class="form-control" name="inputSearchVal" id="inputSearchVal" ng-model='inputSearchVal'>
-                                <option>Choisissez...</option>
-                                <option value="+200">+200</option>
-                                <option value="180-200">180-200</option>
-                                <option value="170-180">170-180</option>
-                                <option value="150-170">150-170</option>
-                                <option value="Nain">Nain</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Sa taille</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputSearchVal=='+200'?'active':'notactive'" ng-click="changeinputSearchVal('+200')">+200</li>
+                            <li ng-class="inputSearchVal=='180-200'?'active':'notactive'" ng-click="changeinputSearchVal('180-200')">180-200</li>
+                            <li ng-class="inputSearchVal=='170-180'?'active':'notactive'" ng-click="changeinputSearchVal('170-180')">170-180</li>
+                            <li ng-class="inputSearchVal=='150-170'?'active':'notactive'" ng-click="changeinputSearchVal('150-170')">150-170</li>
+                            <li ng-class="inputSearchVal=='Nain'?'active':'notactive'" ng-click="changeinputSearchVal('Nain')">Nain</li>
+                            <li ng-class="inputSearchVal==''?'active':'notactive'" ng-click="changeinputSearchVal('')">Je m'en tamponne l'oreille avec une babouche</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button ng-disabled="userCreationForm.$invalid" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
+                <button ng-disabled="inputProfileVal == 'non' || inputSearchVal == 'non'" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
                     Continuer
                 </button>
             </div>

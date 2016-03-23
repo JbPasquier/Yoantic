@@ -2,60 +2,58 @@
     <div class="col-md-10 col-md-offset-1">
         <form name="userCreationForm">
             <div class="col-xs-12 col-md-5 createAccount navbar-inverse">
-                <h1 class='text-center'>A propos
-                    <small>de toi</small>
+                <h1 class='text-center'>A propos de toi
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-1">
-                        <div class="form-group">
-                            <label class="control-label" for="inputProfileVal">Tes cheveux ?</label>
-                            <select required class="form-control" name="inputProfileVal" id="inputProfileVal" ng-model='inputProfileVal'>
-                                <option>Choisissez...</option>
-                                <option value="De la moquette">Je marche dessus</option>
-                                <option value="Hyper longs">Hyper longs</option>
-                                <option value="Longs">Longs</option>
-                                <option value="Moyens">Moyens</option>
-                                <option value="Courts">Courts</option>
-                                <option value="Très courts">Très courts</option>
-                                <option value="Rasé">Rasé</option>
-                                <option value="Aucun">Vous avez-dit cheveux ?</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Tes cheveux ?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputProfileVal=='De la moquette'?'active':'notactive'" ng-click="changeInputProfileVal('De la moquette')">Je marche dessus</li>
+                            <li ng-class="inputProfileVal=='Hyper longs'?'active':'notactive'" ng-click="changeInputProfileVal('Hyper longs')">Hyper longs</li>
+                            <li ng-class="inputProfileVal=='Longs'?'active':'notactive'" ng-click="changeInputProfileVal('Longs')">Longs</li>
+                            <li ng-class="inputProfileVal=='Moyens'?'active':'notactive'" ng-click="changeInputProfileVal('Moyens')">Moyens</li>
+                            <li ng-class="inputProfileVal=='Courts'?'active':'notactive'" ng-click="changeInputProfileVal('Courts')">Courts</li>
+                            <li ng-class="inputProfileVal=='Très courts'?'active':'notactive'" ng-click="changeInputProfileVal('Très courts')">Très courts</li>
+                            <li ng-class="inputProfileVal=='Rasé'?'active':'notactive'" ng-click="changeInputProfileVal('Rasé')">Rasé</li>
+                            <li ng-class="inputProfileVal=='Aucun'?'active':'notactive'" ng-click="changeInputProfileVal('Aucun')">Vous avez-dit cheveux ?</li>
+                            <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 col-md-offset-2 createAccount navbar-inverse">
-                <h1 class='text-center'>Tu cherches
-                    <small>qui, quoi ?</small>
+                <h1 class='text-center'>A propos de l'autre
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-2">
-                        <div class="form-group">
-                            <label class="control-label" for="inputSearchVal">Ses cheveux ?</label>
-                            <select required class="form-control" name="inputSearchVal" id="inputSearchVal" ng-model='inputSearchVal'>
-                                <option>Choisissez...</option>
-                                <option value="De la moquette">Je marche dessus</option>
-                                <option value="Hyper longs">Hyper longs</option>
-                                <option value="Longs">Longs</option>
-                                <option value="Moyens">Moyens</option>
-                                <option value="Courts">Courts</option>
-                                <option value="Très courts">Très courts</option>
-                                <option value="Rasé">Rasé</option>
-                                <option value="Aucun">Vous avez-dit cheveux ?</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Ses cheveux ?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputSearchVal=='De la moquette'?'active':'notactive'" ng-click="changeinputSearchVal('De la moquette')">Je marche dessus</li>
+                            <li ng-class="inputSearchVal=='Hyper longs'?'active':'notactive'" ng-click="changeinputSearchVal('Hyper longs')">Hyper longs</li>
+                            <li ng-class="inputSearchVal=='Longs'?'active':'notactive'" ng-click="changeinputSearchVal('Longs')">Longs</li>
+                            <li ng-class="inputSearchVal=='Moyens'?'active':'notactive'" ng-click="changeinputSearchVal('Moyens')">Moyens</li>
+                            <li ng-class="inputSearchVal=='Courts'?'active':'notactive'" ng-click="changeinputSearchVal('Courts')">Courts</li>
+                            <li ng-class="inputSearchVal=='Très courts'?'active':'notactive'" ng-click="changeinputSearchVal('Très courts')">Très courts</li>
+                            <li ng-class="inputSearchVal=='Rasé'?'active':'notactive'" ng-click="changeinputSearchVal('Rasé')">Rasé</li>
+                            <li ng-class="inputSearchVal=='Aucun'?'active':'notactive'" ng-click="changeinputSearchVal('Aucun')">Vous avez-dit cheveux ?</li>
+                            <li ng-class="inputSearchVal==''?'active':'notactive'" ng-click="changeInputSearchVal('')">Je m'en fiche</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button ng-disabled="userCreationForm.$invalid" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
+                <button ng-disabled="inputProfileVal == 'non' || inputSearchVal == 'non'" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
                     Continuer
                 </button>
             </div>
         </form>
     </div>
 </div>
+<div id="fademe"></div>
+{{changeBg()}}
 <div id="fademe"></div>
 {{changeBg()}}
