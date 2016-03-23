@@ -1,7 +1,6 @@
 <div class='row'>
     <div class="col-xs-12 col-md-6 col-md-offset-3 createAccountOne navbar-inverse">
-        <h1 class='text-center'>A propos
-            <small>de toi</small>
+        <h1 class='text-center'>A propos de toi
         </h1>
         <div class="row">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -12,7 +11,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='(userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern) ? "glyphicon-remove red" : datas.nickname ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
-                            <input required type="text" class="form-control" name="nickname" id="nickname" placeholder="Ton pseudo" ng-model='datas["nickname"]' ng-maxlength="12" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false'/>
+                            <input required type="text" class="form-control" name="nickname" id="nickname" placeholder="Ton pseudo" ng-model='datas["nickname"]' ng-maxlength="12" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false' />
                         </div>
                     </div>
                     <div class="form-group">
@@ -21,13 +20,13 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='(userCreationForm.firstName.$dirty && userCreationForm.firstName.$error.pattern) ? "glyphicon-remove red" : datas.firstName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
-                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false'/>
+                            <input required type="text" class="form-control" name="firstName" id="firstName" placeholder="Ton prénom" ng-model='datas["firstName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false' />
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='(userCreationForm.lastName.$dirty && userCreationForm.lastName.$error.pattern) ? "glyphicon-remove red" : datas.lastName ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
-                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false'/>
+                            <input required type="text" class="form-control" name="lastName" id="lastName" placeholder="Ton nom" ng-model='datas["lastName"]' ng-pattern="/^[\w\-]+$/" ng-trim='false' />
 
                         </div>
                         <div class="input-group">
@@ -35,7 +34,7 @@
                                 <span class="glyphicon" ng-class='(userCreationForm.email.$dirty && userCreationForm.email.$error.pattern) ? "glyphicon-remove red" : datas.email ? "glyphicon-ok green" : "glyphicon-pencil"'></span>
                             </span>
 
-                            <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' ng-trim="false"/>
+                            <input required type="email" class="form-control" name="email" id="email" placeholder="Ton email" ng-model='datas["email"]' ng-pattern='/^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$/' ng-trim="false" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,46 +43,36 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='datas.password.length < 5 || isValidPassword("[A-Z]+") || isValidPassword("[a-z]+") || isValidPassword("[0-9]+") ? "glyphicon-remove red" : datas.password ? "glyphicon-ok green" : !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/"/>
+                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/" />
                         </div>
                         <div class="input-group" ng-show="datas.password.length > 4 && !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern)">
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='datas.password != datas.passwordConfirm && datas.password.length > 4 ? "glyphicon-remove red" : datas.passwordConfirm ? "glyphicon-ok green" : !(userCreationForm.passwordConfirm.$dirty && userCreationForm.passwordConfirm.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe" ng-model='datas["passwordConfirm"]' ng-pattern="pattern"/>
+                            <input required type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmes ton mot de passe" ng-model='datas["passwordConfirm"]' ng-pattern="pattern" />
                         </div>
                     </div>
                     <ul>
                         <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.pattern" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Un pseudo est composé de chiffres et/ou de lettres</li>
+                            <span class='glyphicon glyphicon-remove'></span> Un pseudo est composé de chiffres et/ou de lettres</li>
                         <li ng-show="userCreationForm.nickname.$dirty && userCreationForm.nickname.$error.maxlength" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Le pseudo doit contenir au maximum 12 caractères</li>
+                            <span class='glyphicon glyphicon-remove'></span> Le pseudo doit contenir au maximum 12 caractères</li>
                         <li ng-show="userCreationForm.firstName.$dirty && userCreationForm.firstName.$error.pattern" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Ce prénom n'est pas accepté</li>
+                            <span class='glyphicon glyphicon-remove'></span> Ce prénom n'est pas accepté</li>
                         <li ng-show="userCreationForm.lastName.$dirty && userCreationForm.lastName.$error.pattern" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Ce nom n'est pas accepté</li>
+                            <span class='glyphicon glyphicon-remove'></span> Ce nom n'est pas accepté</li>
                         <li ng-show="userCreationForm.email.$dirty && userCreationForm.email.$error.pattern" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Cet email est invalide</li>
+                            <span class='glyphicon glyphicon-remove'></span> Cet email est invalide</li>
                         <li ng-show="datas.password.trim().length < 5" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Le mot de passe doit contenir au moins 5 caractères</li>
+                            <span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins 5 caractères</li>
                         <li ng-show="isValidPassword('[A-Z]+')" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Le mot de passe doit contenir au moins une majuscule</li>
+                            <span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins une majuscule</li>
                         <li ng-show="isValidPassword('[a-z]+')" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Le mot de passe doit contenir au moins une minuscule</li>
+                            <span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins une minuscule</li>
                         <li ng-show="isValidPassword('[0-9]+')" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Le mot de passe doit contenir au moins un chiffre</li>
+                            <span class='glyphicon glyphicon-remove'></span> Le mot de passe doit contenir au moins un chiffre</li>
                         <li ng-show="datas.password.trim() != datas.passwordConfirm.trim() && datas.passwordConfirm.trim() != '' && datas.password.trim().length > 5" class='white-danger'>
-                            <span class='glyphicon glyphicon-remove'></span>
-                            Les mots de passes sont différents</li>
+                            <span class='glyphicon glyphicon-remove'></span> Les mots de passes sont différents</li>
                     </ul>
                 </form>
             </div>

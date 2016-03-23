@@ -7,7 +7,7 @@ function userUpdateController($scope, $http, userService, userNavBarService, use
         $scope.inputSearchVal = 'non';
         $scope.changeBg = function() {
             $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + $location.url().split('-')[1] + '.jpg")');
-            $('#fademe').css('background-image', 'url("./assets/accountCreation/step' + $location.url().split('-')[1] + '.jpg")').fadeOut(1500);
+            $('#fademe').css('background-image', 'url("./assets/accountCreation/step' + $location.url().split('-')[1] + '.jpg")').fadeOut(1000);
         };
         userFactory.current = $location.url().split('-')[1];
         if (userFactory.current == 3 && userFactory.prevCurrent == 2) {

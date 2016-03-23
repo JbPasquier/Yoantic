@@ -112,6 +112,7 @@ var User = {
                 data[0].search[key] = req.body.objSearch[key];
             });
             data[0].save();
+            res.sendStatus(200);
         });
     },
 
