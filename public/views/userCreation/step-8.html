@@ -2,52 +2,51 @@
     <div class="col-md-10 col-md-offset-1">
         <form name="userCreationForm">
             <div class="col-xs-12 col-md-5 createAccount navbar-inverse">
-                <h1 class='text-center'>A propos
-                    <small>de toi</small>
+                <h1 class='text-center'>A propos de toi
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-1">
-                        <div class="form-group">
-                            <label class="control-label" for="inputProfileVal">Ton poids</label>
-                            <select required class="form-control" name="inputProfileVal" id="inputProfileVal" ng-model='inputProfileVal'>
-                                <option>Choisissez...</option>
-                                <option value="+9000">It's over9000</option>
-                                <option value="+100">+100</option>
-                                <option value="80-90">80-90</option>
-                                <option value="70-80">70-80</option>
-                                <option value="60-70">60-70</option>
-                                <option value="50-60">50-60</option>
-                                <option value="-50">-50</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Votre poids?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputProfileVal=='m50'?'active':'notactive'" ng-click="changeInputProfileVal('m50')">Moins de 50</li>
+                            <li ng-class="inputProfileVal=='50-60'?'active':'notactive'" ng-click="changeInputProfileVal('50-60')">50-60</li>
+                            <li ng-class="inputProfileVal=='60-70'?'active':'notactive'" ng-click="changeInputProfileVal('60-70')">60-70</li>
+                            <li ng-class="inputProfileVal=='70-80'?'active':'notactive'" ng-click="changeInputProfileVal('70-80')">70-80</li>
+                            <li ng-class="inputProfileVal=='80-90'?'active':'notactive'" ng-click="changeInputProfileVal('80-90')">80-90</li>
+                            <li ng-class="inputProfileVal=='90-100'?'active':'notactive'" ng-click="changeInputProfileVal('90-100')">90-100</li>
+                            <li ng-class="inputProfileVal=='p100'?'active':'notactive'" ng-click="changeInputProfileVal('p100')">Plus de 100</li>
+                            <li ng-class="inputProfileVal=='p9000'?'active':'notactive'" ng-click="changeInputProfileVal('p9000')">It's over 9000</li>
+                            <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-5 col-md-offset-2 createAccount navbar-inverse">
-                <h1 class='text-center'>Tu cherches
-                    <small>qui, quoi ?</small>
+                <h1 class='text-center'>A propos de l'autre
                 </h1>
                 <div class="row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-2">
-                        <div class="form-group">
-                            <label class="control-label" for="inputSearchVal">Son poids</label>
-                            <select required class="form-control" name="inputSearchVal" id="inputSearchVal" ng-model='inputSearchVal'>
-                                <option>Choisissez...</option>
-                                <option value="+9000">It's over9000</option>
-                                <option value="+100">+100</option>
-                                <option value="80-90">80-90</option>
-                                <option value="70-80">70-80</option>
-                                <option value="60-70">60-70</option>
-                                <option value="50-60">50-60</option>
-                            </select>
-                        </div>
-                        <br/>
+                    <div class="col-md-4">
+                        <label class="question">Quel est son statut marital ?</label>
+                    </div>
+                    <div class="col-md-8">
+                        <ul class="customSelect">
+                            <li ng-class="inputSearchVal=='m50'?'active':'notactive'" ng-click="changeInputSearchVal('m50')">Moins de 50</li>
+                            <li ng-class="inputSearchVal=='50-60'?'active':'notactive'" ng-click="changeInputSearchVal('50-60')">50-60</li>
+                            <li ng-class="inputSearchVal=='60-70'?'active':'notactive'" ng-click="changeInputSearchVal('60-70')">60-70</li>
+                            <li ng-class="inputSearchVal=='70-80'?'active':'notactive'" ng-click="changeInputSearchVal('70-80')">70-80</li>
+                            <li ng-class="inputSearchVal=='80-90'?'active':'notactive'" ng-click="changeInputSearchVal('80-90')">80-90</li>
+                            <li ng-class="inputSearchVal=='90-100'?'active':'notactive'" ng-click="changeInputSearchVal('90-100')">90-100</li>
+                            <li ng-class="inputSearchVal=='p100'?'active':'notactive'" ng-click="changeInputSearchVal('p100')">Plus de 100</li>
+                            <li ng-class="inputSearchVal=='p9000'?'active':'notactive'" ng-click="changeInputSearchVal('p9000')">It's over 9000</li>
+                            <li ng-class="inputSearchVal==''?'active':'notactive'" ng-click="changeInputSearchVal('')">Je le garde pour moi</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button ng-disabled="userCreationForm.$invalid" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
+                <button ng-disabled="inputProfileVal == 'non' || inputSearchVal == 'non'" type="button" class="btn col-xs-4 col-xs-offset-4 btn-lg btn-white" ng-click='save();step("next")'>
                     Continuer
                 </button>
             </div>
