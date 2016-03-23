@@ -16,6 +16,10 @@ function routes($routeProvider) {
         templateUrl: 'views/dash.html',
         controller: dashController
     });
+    $routeProvider.when('/search', {
+        templateUrl: 'views/search.html',
+        controller: searchController
+    });
     $routeProvider.otherwise({
         redirectTo: '/userCreation/step-0'
     });
