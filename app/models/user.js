@@ -68,7 +68,7 @@ var User = {
             }
             return true;
         };
-
+console.log(req.body.currentGender);
         is_ok =
             checkInput(req.body.nickname, "[A-Za-z0-9-]+") &&
             checkInput(req.body.firstName, "[\\w\\-]+") &&

@@ -12,6 +12,10 @@ function routes($routeProvider) {
             });
         }
     }
+    $routeProvider.when('/dashboard', {
+        templateUrl: 'views/dash.html',
+        controller: dashController
+    });
     $routeProvider.otherwise({
         redirectTo: '/userCreation/step-0'
     });

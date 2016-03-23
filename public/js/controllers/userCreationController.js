@@ -6,18 +6,9 @@ function userCreationController($scope, $http, userService, userNavBarService, u
         $('body').css('background-image', 'none').css('background-image', 'url("./assets/accountCreation/step' + $location.url().split('-')[1] + '.jpg")');
         userFactory.current = $location.url().split('-')[1];
         $scope.datas = userFactory.datas;
-        $scope.datas = {
-            currentGender: 1,
-            nickname: 'a',
-            password: "aA123",
-            passwordConfirm: "aA123",
-            city: 'a',
-            major18: true,
-            firstName: 'a',
-            lastName: 'a',
-            email: 'a@a.aa'
-        };
-        $scope.pattern = new RegExp('^' + $scope.datas.password + '$');
+        $scope.updatePattern = function () {
+            $scope.pattern = new RegExp('^' + $scope.datas.password + '$');
+        }
         $scope.isValidPassword = function(regex) { //isValidPassword('[A-Z]+')
             if ($scope.datas.password !== '') {
                 return $scope.datas.password ? !(new RegExp('^.*' + regex + '.*$').test($scope.datas.password)) : false;
@@ -34,8 +25,9 @@ function userCreationController($scope, $http, userService, userNavBarService, u
                 $scope.datas.currentGender = gender;
             }
         };
-        userFactory.datas = $scope.datas;
         $scope.step = function(e) {
+            userFactory.datas = $scope.datas;
+            console.log(userFactory.datas.currentGender);
             userNavBarService.step(e);
         };
     }

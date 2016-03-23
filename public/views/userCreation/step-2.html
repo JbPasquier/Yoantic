@@ -43,7 +43,7 @@
                             <span class="input-group-addon">
                                 <span class="glyphicon" ng-class='datas.password.length < 5 || isValidPassword("[A-Z]+") || isValidPassword("[a-z]+") || isValidPassword("[0-9]+") ? "glyphicon-remove red" : datas.password ? "glyphicon-ok green" : !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern) ? "glyphicon-pencil" : "glyphicon-remove red"'></span>
                             </span>
-                            <input required type="password" class="form-control" name="password" id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/" />
+                            <input required type="password" class="form-control" name="password" ng-change='updatePattern()' id="password" placeholder="Ton mot de passe" ng-model='datas["password"]' ng-pattern="/^[A-Za-z0-9]+$/" />
                         </div>
                         <div class="input-group" ng-show="datas.password.length > 4 && !(userCreationForm.password.$dirty && userCreationForm.password.$error.pattern)">
                             <span class="input-group-addon">
