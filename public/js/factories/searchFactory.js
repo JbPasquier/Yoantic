@@ -18,7 +18,7 @@ function searchFactory() {
             'convenant': [
                 {
                     name: 'Souhaite une relation',
-                    value: ''
+                    value: '',
                 },
                 {
                     name: 'Prêt(e) à s\'engager',
@@ -30,7 +30,7 @@ function searchFactory() {
                 },
                 {
                     name: 'Souhaite une relation',
-                    value: ''
+                    value: 'Souhaite une relation'
                 },
                 {
                     name: 'Laisse faire le hasard',

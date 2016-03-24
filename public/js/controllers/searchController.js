@@ -9,6 +9,7 @@ function searchController($scope, $location, $http, userFactory, searchFactory, 
         $http.get('/user').then(function (e) {
             $scope.users = e.data;
         });
+        $scope.search = {profile : {}};
         $scope.selects = searchFactory.selects;
     });
 }
