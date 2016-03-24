@@ -45,7 +45,9 @@ var userSchema = new mongoose.Schema({
         assMeasurementMin: Number,
         assMeasurementMax: Number,
         sexe: Boolean
-    }
+    },
+    ilike: [String], // like & ignore by _id
+    idislike: [String]
 });
 
 var User = {

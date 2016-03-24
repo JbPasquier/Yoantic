@@ -1,35 +1,7 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">3615 <small>ULLALOUPE</small></a>
-        </div>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#"><span class='glyphicon glyphicon-user'></span>&nbsp;{{username}}</a>
-                </li>
-                <li>
-                    <a href="#"><span class='glyphicon glyphicon-search'></span>&nbsp;Rechercher</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="row">
     <form class="form-inline">
         <div class="form-group">
-            <select ng-repeat="(key, item) in selects" ng-model="search[key]">
+            <select ng-repeat="(key, item) in selects" ng-model="search.profile[key]">
                 <option ng-repeat="i in item" value="{{i.value}}">{{i.name}}</option>
             </select>
         </div>
@@ -39,12 +11,18 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="container-fluid">
             <div class="row">
-                <div ng-repeat="user in users" class="col-sm-6 col-md-2">
+                <div ng-repeat="user in users | filter:search" class="col-sm-6 col-md-2">
                     <div class="thumbnail">
                         <img src="assets/yoan_profil.jpg" alt="Yoan">
-                        <div class="caption">
-                            <h3>{{user.nickname}}</h3>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        <div class="caption text-center">
+                            <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
+                            <p style='margin-bottom:8px;'>20 ans</p>
+                            <button type="button" class="btn btn-success">
+                                <span class='glyphicon glyphicon-ok'></span>
+                            </button>
+                            <button type="button" class="btn btn-danger">
+                                <span class='glyphicon glyphicon-remove'></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -52,3 +30,4 @@
         </div>
     </div>
 </div>
+<ng-include src="'views/navbar.html'"></ng-include>
