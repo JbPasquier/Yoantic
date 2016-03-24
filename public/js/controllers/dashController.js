@@ -1,9 +1,11 @@
 function dashController($scope, $location, $http, userFactory, userService) {
     userService.getUserById('56f2c1f74d31b95c5033c677').then(function(e) {
+        $('body').css('background-image', 'none').css('background-color', 'black');
         userFactory.datas = e.data[0];
-        $scope.username = userFactory.datas.profile.firstname + ' ' + userFactory.datas.profile.lastname;
-        $scope.userprofile = userFactory.datas.profile;
-        $scope.userpic = './assets/yoan_profil.jpg';
+        $scope.userName = userFactory.datas.profile.firstname + ' ' + userFactory.datas.profile.lastname;
+        $scope.userProfile = userFactory.datas.profile;
+        $scope.userSearch = userFactory.datas.search;
+        $scope.userPic = './assets/yoan_profil.jpg';
         $http.get('/user').then(function(e) {
             $scope.profiles = e.data;
         });

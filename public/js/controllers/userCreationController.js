@@ -8,7 +8,7 @@ function userCreationController($scope, $http, userService, userNavBarService, u
         $scope.datas = userFactory.datas;
         $scope.updatePattern = function () {
             $scope.pattern = new RegExp('^' + $scope.datas.password + '$');
-        }
+        };
         $scope.isValidPassword = function(regex) { //isValidPassword('[A-Z]+')
             if ($scope.datas.password !== '') {
                 return $scope.datas.password ? !(new RegExp('^.*' + regex + '.*$').test($scope.datas.password)) : false;

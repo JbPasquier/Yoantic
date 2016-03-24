@@ -1,67 +1,40 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">3615
-                <small>ULLALOUPE</small>
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">
-                        <span class='glyphicon glyphicon-user'></span>&nbsp;{{username}}</a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class='glyphicon glyphicon-search'></span>&nbsp;Rechercher</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-log-out"></span>
-                        Déconnexion</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<ng-include src="'views/navbar.html'"></ng-include>
 <div class="row">
     <div class="col-md-10 col-md-offset-1 navbar-inverse">
         <div class="container-fluid">
-            <br />
+            <br/>
             <div class="row">
-                <div class="col-xs-4 text-center">
-                    <img src="{{userpic}}" alt="{{username}}" class='img-circle'/>
+                <div class="col-md-4 text-center">
+                    <img src="{{userPic}}" alt="{{userName}}" class='img-circle'/>
                 </div>
-                <div class="col-xs-8">
+                <div class="col-md-8">
                     <h3>{{username}}</h3>
-                    <div ng-repeat='(key, info) in userprofile'>
+                    <div ng-repeat='(key, info) in userProfile'>
                         <div ng-show='info != "" && translate.keyMe[key]'>
-                            {{translate.keyMe[key]}} : {{translate.keyMeVal[info] ? translate.keyMeVal[info] : info}}
-                            <br />
+                            {{translate.keyMe[key]}}
+                            :
+                            {{translate.keyMeVal[info] ? translate.keyMeVal[info] : info}}
+                            <br/>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr />
+            <hr/>
             <div class="row">
-                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles'>
+                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles '>
                     <div class="thumbnail">
-                        <img src="{{userpic}}" alt="{{user.nickname}}"/>
+                        <abbr style='position:absolute;right:10%' title='En ligne'>
+                            <span class='glyphicon glyphicon-asterisk' style='color:green'></span>
+                        </abbr>
+                        <img src="{{userPic}}" alt="{{user.nickname}}"/>
                         <div class="caption text-center">
-                            <p>{{user.nickname}}</p>
+                            <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
+                            <p style='margin-bottom:8px;'>20 ans</p>
                             <button type="button" class="btn btn-success">
-                                Like
+                                <span class='glyphicon glyphicon-ok'></span>
                             </button>
                             <button type="button" class="btn btn-danger">
-                                Dislike
+                                <span class='glyphicon glyphicon-remove'></span>
                             </button>
                         </div>
                     </div>
