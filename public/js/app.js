@@ -6,4 +6,5 @@ angular.module('app', ['ngRoute', 'ngAnimate', 'ngAutocomplete', 'flow'])
     .controller('searchController', userUpdateController)
     .service('userService', userService)
     .service('userNavBarService', userNavBarService)
-    .factory('userFactory', userFactory);
+    .factory('userFactory', userFactory)
+    .factory('searchFactory', searchFactory);
