@@ -1,0 +1,52 @@
+{
+    'sexe': ['', true, false],
+    'convenant': ['', 'Souhaites s'engager', 'Ne veut pas', 'Souhaite une relation', 'Laisse faire le hasard'],
+    'married': ['', 'Jamais mariée', 'Séparée', 'Divorcée', 'Veuf', 'Mariée'],
+    'children': ['', 'A des enfants', 'N'a pas d'enfants'],
+    'wantChildren': ['', 'En veux', 'En veux', 'Ne sais pas encore'],
+    'height': ['', '+200', '180-200', '170-180', '150-170', 'Nain'],
+    'weight': ['', '-50', '50-60', '60-70', '70-80', '80-90', '90-100', '+100', '+9000'],
+    'hairLenght': ['', 'De la moquette', 'Hyper longs', 'Longs', 'Moyens', 'Courts', 'Très courts', 'Rasé', 'Aucun'],
+    'hairColor': ['', 'Roses', 'Verts', 'Blonds', 'Blancs', 'Bleus', 'Gris', 'Verts', 'Bruns', 'Propres', 'Stéphanie'],
+    'origin': ['', 'Basque', 'Breton', 'Germanique', 'Romane', 'Navarroise', 'Occitano-catalane', 'Gallo-italique', 'Polynésienne', 'Créole']
+}
+[
+  {
+    'repeat:100': {
+      _id: '{{objectId()}}',
+      nickname: "{{surname()}}"+"{{integer(10,80)}}",
+      email: function (tags) {
+        return (this.nickname + '@' + tags.company() + tags.domainZone()).toLowerCase();
+      },
+      password: "{{city()}}"+"{{integer(1,10)}}",
+      profile: {
+		avatar: ['https://www.gravatar.com/avatar/'+"{{integer(9999,999999)}}"+'?s=48&d=monsterid'],
+		city: "{{city()}}, {{country()}}",
+        sexe: '{{bool()}}',
+        firstname: "{{firstName()}}",
+        lastname: "{{surname()}}",
+        convenant: "{{random('Souhaites s\\'engager', 'Ne veut pas', 'Souhaite une relation', 'Laisse faire le hasard')}}",
+        married: "{{random('Jamais mariée', 'Séparée', 'Divorcée', 'Veuf', 'Mariée')}}",
+        children: "{{random('A des enfants', 'N\\'a pas d\\'enfants')}}",
+        wantChildren: "{{random('En veux', 'En veux', 'Ne sais pas encore')}}",
+        weight: "{{random('-50', '50-60', '60-70', '70-80', '80-90', '90-100', '+100', '+9000')}}",
+        height: "{{random('+200', '180-200', '170-180', '150-170', 'Nain')}}",
+        hairLenght: "{{random('De la moquette', 'Hyper longs', 'Longs', 'Moyens', 'Courts', 'Très courts', 'Rasé', 'Aucun')}}",
+        hairColor: "{{random('Roses', 'Verts', 'Blonds', 'Blancs', 'Bleus', 'Gris', 'Verts', 'Bruns', 'Propres', 'Stéphanie')}}",
+        origin: "{{random('Basque', 'Breton', 'Germanique', 'Romane', 'Navarroise', 'Occitano-catalane', 'Gallo-italique', 'Polynésienne', 'Créole')}}"
+      },
+      search: {
+        sexe: '{{bool()}}',
+        convenant: "{{random('','Souhaites s\\'engager', 'Ne veut pas', 'Souhaite une relation', 'Laisse faire le hasard')}}",
+        married: "{{random('','Jamais mariée', 'Séparée', 'Divorcée', 'Veuf', 'Mariée')}}",
+        children: "{{random('','A des enfants', 'N\\'a pas d\\'enfants')}}",
+        wantChildren: "{{random('','En veux', 'En veux', 'Ne sais pas encore')}}",
+        weight: "{{random('','-50', '50-60', '60-70', '70-80', '80-90', '90-100', '+100', '+9000')}}",
+        height: "{{random('','+200', '180-200', '170-180', '150-170', 'Nain')}}",
+        hairLenght: "{{random('','De la moquette', 'Hyper longs', 'Longs', 'Moyens', 'Courts', 'Très courts', 'Rasé', 'Aucun')}}",
+        hairColor: "{{random('','Roses', 'Verts', 'Blonds', 'Blancs', 'Bleus', 'Gris', 'Verts', 'Bruns', 'Propres', 'Stéphanie')}}",
+        origin: "{{random('','Basque', 'Breton', 'Germanique', 'Romane', 'Navarroise', 'Occitano-catalane', 'Gallo-italique', 'Polynésienne', 'Créole')}}"
+      }
+    }
+  }
+]
