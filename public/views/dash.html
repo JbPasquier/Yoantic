@@ -26,7 +26,7 @@
                         <abbr style='position:absolute;right:10%' title='En ligne'>
                             <span class='glyphicon glyphicon-asterisk' style='color:green'></span>
                         </abbr>
-                        <img ng-src="{{user.profile.avatar[0]}}" alt="{{user.nickname}}"/>
+                        <img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="{{user.nickname}}"/>
                         <div class="caption text-center">
                             <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
                             <p style='margin-bottom:8px;'>20 ans</p>
