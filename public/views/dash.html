@@ -5,7 +5,7 @@
             <br/>
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img src="{{userPic}}" alt="{{userName}}" class='img-circle'/>
+                    <img ng-src="{{userProfile.avatar[0]}}" alt="{{userName}}" class='img-circle'/>
                 </div>
                 <div class="col-md-8">
                     <h3>{{username}}</h3>
@@ -21,12 +21,12 @@
             </div>
             <hr/>
             <div class="row">
-                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles '>
+                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles | filter:searchProfile | limitTo:12 '>
                     <div class="thumbnail">
                         <abbr style='position:absolute;right:10%' title='En ligne'>
                             <span class='glyphicon glyphicon-asterisk' style='color:green'></span>
                         </abbr>
-                        <img src="{{userPic}}" alt="{{user.nickname}}"/>
+                        <img ng-src="{{user.profile.avatar[0]}}" alt="{{user.nickname}}"/>
                         <div class="caption text-center">
                             <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
                             <p style='margin-bottom:8px;'>20 ans</p>

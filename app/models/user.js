@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
     lastLogin: Date,
     isVerified: Boolean,
     profile: {
+        avatar: [String],
         city: String,
         firstname: String,
         lastname: String,
@@ -90,6 +91,7 @@ console.log(req.body.currentGender);
                 email: req.body.email,
                 password: req.body.password,
                 profile: {
+                    avatar: req.body.avatar,
                     firstname: req.body.firstName,
                     lastname: req.body.lastName,
                     birthday: req.body.birthday,

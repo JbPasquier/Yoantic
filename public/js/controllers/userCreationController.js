@@ -27,8 +27,11 @@ function userCreationController($scope, $http, userService, userNavBarService, u
         };
         $scope.step = function(e) {
             userFactory.datas = $scope.datas;
-            console.log(userFactory.datas.currentGender);
             userNavBarService.step(e);
+        };
+        $scope.toBase64 = function(files){
+            userService.toBase64(files);
+            $scope.datas.avatar = userFactory.datas.avatar;
         };
     }
 }

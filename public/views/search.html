@@ -13,7 +13,7 @@
             <div class="row">
                 <div ng-repeat="user in users | filter:search" class="col-sm-6 col-md-2">
                     <div class="thumbnail">
-                        <img src="assets/yoan_profil.jpg" alt="Yoan">
+                        <img ng-src="{{user.profile.avatar[0]}}" alt="Yoan">
                         <div class="caption text-center">
                             <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
                             <p style='margin-bottom:8px;'>20 ans</p>

@@ -20,6 +20,10 @@ function routes($routeProvider) {
         templateUrl: 'views/search.html',
         controller: searchController
     });
+    $routeProvider.when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: searchController
+    });
     $routeProvider.otherwise({
         redirectTo: '/userCreation/step-0'
     });
