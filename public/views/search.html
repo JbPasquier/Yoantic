@@ -1,29 +1,24 @@
-<div class="row">
-    <form class="form-inline">
-        <div class="form-group">
-            <select ng-repeat="(key, item) in selects" ng-model="search.profile[key]">
-                <option ng-repeat="i in item" value="{{i.value}}">{{i.name}}</option>
-            </select>
-        </div>
-    </form>
-</div>
-<div class="row" style="background-color: black;">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="container-fluid">
-            <div class="row">
-                <div ng-repeat="user in users | filter:search" class="col-sm-6 col-md-2">
-                    <div class="thumbnail">
-                        <img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="Yoan">
-                        <div class="caption text-center">
-                            <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
-                            <p style='margin-bottom:8px;'>20 ans</p>
-                            <button type="button" class="btn btn-success">
-                                <span class='glyphicon glyphicon-ok'></span>
-                            </button>
-                            <button type="button" class="btn btn-danger">
-                                <span class='glyphicon glyphicon-remove'></span>
-                            </button>
-                        </div>
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <select ng-repeat="(key, item) in selects" ng-model="search.profile[key]" class="selectFilter">
+        <option ng-repeat="i in item" value="{{i.value}}">{{i.name}}</option>
+    </select>
+</nav>
+<div class="col-md-10 col-md-offset-1 navbar-inverse">
+    <div class="container-fluid">
+        <br/>
+        <div class="row">
+            <div ng-repeat="user in users | filter:search" class="col-sm-6 col-md-2">
+                <div class="thumbnail">
+                    <img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="Yoan">
+                    <div class="caption text-center">
+                        <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
+                        <p style='margin-bottom:8px;'>20 ans</p>
+                        <button type="button" class="btn btn-success">
+                            <span class='glyphicon glyphicon-ok'></span>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                            <span class='glyphicon glyphicon-remove'></span>
+                        </button>
                     </div>
                 </div>
             </div>
