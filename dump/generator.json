@@ -13,18 +13,20 @@
 [
   {
     'repeat:100': {
-      _id: '{{objectId()}}',
+      _id: 'ObjectId("{{objectId()}}")',
       nickname: "{{surname()}}"+"{{integer(10,80)}}",
       email: function (tags) {
         return (this.nickname + '@' + tags.company() + tags.domainZone()).toLowerCase();
       },
       password: "{{city()}}"+"{{integer(1,10)}}",
       profile: {
-		avatar: ['https://www.gravatar.com/avatar/'+"{{integer(9999,999999)}}"+'?s=48&d=monsterid'],
 		city: "{{city()}}, {{country()}}",
         sexe: '{{bool()}}',
         firstname: "{{firstName()}}",
         lastname: "{{surname()}}",
+		avatar: function(tags) {
+    return 'http://www.gravatar.com/avatar/' + (this.firstname + this.lastname).toLowerCase() + '.jpg?s=256';
+},
         convenant: "{{random('Souhaites s\\'engager', 'Ne veut pas', 'Souhaite une relation', 'Laisse faire le hasard')}}",
         married: "{{random('Jamais mariée', 'Séparée', 'Divorcée', 'Veuf', 'Mariée')}}",
         children: "{{random('A des enfants', 'N\\'a pas d\\'enfants')}}",
