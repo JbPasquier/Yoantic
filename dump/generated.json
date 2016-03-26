@@ -6799,7 +6799,6 @@
   }
 }
 {
-    "__v" : 0,
     "_id" : ObjectId("56f6a4ad4cb92db115699b9c"),
     "email" : "yoan@ficadie.re",
     "idislike" : [],
