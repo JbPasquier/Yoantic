@@ -21,7 +21,7 @@
             </div>
             <hr/>
             <div class="row">
-                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles | filter:searchProfile | limitTo:12 '>
+                <div class="col-sm-4 col-md-2" ng-repeat='user in profiles | filter:userSearch | limitTo:12 '>
                     <div class="thumbnail">
                         <abbr style='position:absolute;right:10%' title='En ligne'>
                             <span class='glyphicon glyphicon-asterisk' style='color:green'></span>
@@ -29,7 +29,7 @@
                         <img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="{{user.nickname}}"/>
                         <div class="caption text-center">
                             <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
-                            <p style='margin-bottom:8px;'>20 ans</p>
+                            <p style='margin-bottom:8px;'>{{user.profile.sexe?'Femme':'Homme'}} 20 ans</p>
                             <button type="button" class="btn btn-success">
                                 <span class='glyphicon glyphicon-ok'></span>
                             </button>

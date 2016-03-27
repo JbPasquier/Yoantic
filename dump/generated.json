@@ -6799,6 +6799,7 @@
   }
 }
 {
+    "__v" : 0,
     "_id" : ObjectId("56f6a4ad4cb92db115699b9c"),
     "email" : "yoan@ficadie.re",
     "idislike" : [],
@@ -6819,19 +6820,13 @@
         "lastname" : "Ficadiere",
         "married" : "Jamais mariée",
         "origin" : "Basque",
-        "sexe" : true,
+        "sexe" : false,
         "wantChildren" : "",
         "weight" : "50-60"
     },
     "search" : {
-        "children" : "",
-        "convenant" : "Laisse faire le hasard",
         "hairColor" : "Bruns",
-        "hairLenght" : "De la moquette",
         "height" : "150-170",
-        "married" : "",
-        "origin" : "Navarroise",
-        "wantChildren" : "Ne veux pas d'enfants",
-        "weight" : "90-100"
+        "sexe" : true
     }
 }

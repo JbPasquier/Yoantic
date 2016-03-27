@@ -4,7 +4,8 @@ function dashController($scope, $location, $http, userFactory, userService) {
         userFactory.datas = e.data[0];
         $scope.username = userFactory.datas.profile.firstname + ' ' + userFactory.datas.profile.lastname;
         $scope.userProfile = userFactory.datas.profile;
-        $scope.userSearch = userFactory.datas.search;
+        $scope.d = userFactory.datas;
+        $scope.userSearch = {profile:userFactory.datas.search};
         $scope.userPic = './assets/yoan_profil.jpg';
         $http.get('/user').then(function(e) {
             $scope.profiles = e.data;
@@ -19,7 +20,9 @@ function dashController($scope, $location, $http, userFactory, userService) {
                 height: 'Taille',
                 married: 'Mariage',
                 wantChildren: 'Des mioches',
-                sexe: 'Sexe'
+                sexe: 'Sexe',
+                origin: 'Origines',
+                weight: 'Poids'
             },
             keyMeVal: {
                 true: 'Femme',
