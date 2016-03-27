@@ -1,0 +1,183 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'info', 'vtop' ]
+2 info using npm@3.8.2
+3 info using node@v5.9.0
+4 silly mapToRegistry name vtop
+5 silly mapToRegistry using default registry
+6 silly mapToRegistry registry https://registry.npmjs.org/
+7 silly mapToRegistry uri https://registry.npmjs.org/vtop
+8 verbose request uri https://registry.npmjs.org/vtop
+9 verbose request no auth needed
+10 info attempt registry request try #1 at 20:18:51
+11 verbose request id 33a21b0593916e29
+12 verbose etag "DYCKQ471TBXU2EU2B6DZL5QNM"
+13 http request GET https://registry.npmjs.org/vtop
+14 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+15 info attempt registry request try #2 at 20:19:01
+16 verbose etag "DYCKQ471TBXU2EU2B6DZL5QNM"
+17 http request GET https://registry.npmjs.org/vtop
+18 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+19 info attempt registry request try #3 at 20:20:01
+20 verbose etag "DYCKQ471TBXU2EU2B6DZL5QNM"
+21 http request GET https://registry.npmjs.org/vtop
+22 silly get cb [ 304, undefined ]
+23 verbose etag https://registry.npmjs.org/vtop from cache
+24 verbose get saving vtop to /home/jbp/.npm/registry.npmjs.org/vtop/.cache.json
+25 verbose correctMkdir /home/jbp/.npm correctMkdir not in flight; initializing
+26 silly cleanup { '0.5.5':
+26 silly cleanup    { _id: 'vtop@0.5.5',
+26 silly cleanup      _rev: '103-a5bf04a125ab1c88b56c24dd26e02122',
+26 silly cleanup      name: 'vtop',
+26 silly cleanup      description: 'Wow such top. So stats',
+26 silly cleanup      'dist-tags': { latest: '0.5.5' },
+26 silly cleanup      versions:
+26 silly cleanup       [ '0.0.3',
+26 silly cleanup         '0.1.0',
+26 silly cleanup         '0.1.1',
+26 silly cleanup         '0.1.2',
+26 silly cleanup         '0.1.3',
+26 silly cleanup         '0.1.4',
+26 silly cleanup         '0.1.6',
+26 silly cleanup         '0.1.7',
+26 silly cleanup         '0.1.8',
+26 silly cleanup         '0.2.0',
+26 silly cleanup         '0.2.1',
+26 silly cleanup         '0.2.2',
+26 silly cleanup         '0.2.3',
+26 silly cleanup         '0.2.4',
+26 silly cleanup         '0.2.5',
+26 silly cleanup         '0.2.6',
+26 silly cleanup         '0.2.7',
+26 silly cleanup         '0.2.8',
+26 silly cleanup         '0.3.1',
+26 silly cleanup         '0.3.2',
+26 silly cleanup         '0.3.3',
+26 silly cleanup         '0.4.0',
+26 silly cleanup         '0.4.1',
+26 silly cleanup         '0.4.2',
+26 silly cleanup         '0.4.3',
+26 silly cleanup         '0.4.4',
+26 silly cleanup         '0.4.5',
+26 silly cleanup         '0.4.6',
+26 silly cleanup         '0.4.7',
+26 silly cleanup         '0.4.8',
+26 silly cleanup         '0.4.9',
+26 silly cleanup         '0.4.10',
+26 silly cleanup         '0.4.11',
+26 silly cleanup         '0.4.12',
+26 silly cleanup         '0.4.13',
+26 silly cleanup         '0.4.14',
+26 silly cleanup         '0.4.15',
+26 silly cleanup         '0.4.16',
+26 silly cleanup         '0.4.17',
+26 silly cleanup         '0.5.0',
+26 silly cleanup         '0.5.1',
+26 silly cleanup         '0.5.2',
+26 silly cleanup         '0.5.3',
+26 silly cleanup         '0.5.4',
+26 silly cleanup         '0.5.5' ],
+26 silly cleanup      maintainers: [ [Object] ],
+26 silly cleanup      time:
+26 silly cleanup       { modified: '2015-01-15T04:44:39.068Z',
+26 silly cleanup         created: '2014-06-08T16:51:32.722Z',
+26 silly cleanup         '0.0.3': '2014-06-08T16:51:32.722Z',
+26 silly cleanup         '0.1.0': '2014-06-08T16:53:36.200Z',
+26 silly cleanup         '0.1.1': '2014-06-08T17:00:22.382Z',
+26 silly cleanup         '0.1.2': '2014-06-08T21:38:45.269Z',
+26 silly cleanup         '0.1.3': '2014-06-08T23:04:42.458Z',
+26 silly cleanup         '0.1.4': '2014-06-08T23:08:41.868Z',
+26 silly cleanup         '0.1.6': '2014-06-09T11:17:23.879Z',
+26 silly cleanup         '0.1.7': '2014-06-10T11:32:00.382Z',
+26 silly cleanup         '0.1.8': '2014-06-10T15:15:50.480Z',
+26 silly cleanup         '0.2.0': '2014-06-11T13:06:42.229Z',
+26 silly cleanup         '0.2.1': '2014-06-11T13:07:50.812Z',
+26 silly cleanup         '0.2.2': '2014-06-11T14:03:21.174Z',
+26 silly cleanup         '0.2.3': '2014-06-11T14:53:49.046Z',
+26 silly cleanup         '0.2.4': '2014-06-11T15:44:14.520Z',
+26 silly cleanup         '0.2.5': '2014-06-11T21:31:45.951Z',
+26 silly cleanup         '0.2.6': '2014-06-11T22:23:18.527Z',
+26 silly cleanup         '0.2.7': '2014-06-12T11:13:37.992Z',
+26 silly cleanup         '0.2.8': '2014-06-12T14:50:25.704Z',
+26 silly cleanup         '0.3.1': '2014-06-13T09:20:31.429Z',
+26 silly cleanup         '0.3.2': '2014-06-13T09:32:11.737Z',
+26 silly cleanup         '0.3.3': '2014-06-13T09:42:12.251Z',
+26 silly cleanup         '0.4.0': '2014-06-13T10:18:54.429Z',
+26 silly cleanup         '0.4.1': '2014-06-13T11:55:35.447Z',
+26 silly cleanup         '0.4.2': '2014-06-13T12:09:54.055Z',
+26 silly cleanup         '0.4.3': '2014-06-13T12:12:17.890Z',
+26 silly cleanup         '0.4.4': '2014-06-13T14:18:36.151Z',
+26 silly cleanup         '0.4.5': '2014-06-13T21:00:42.960Z',
+26 silly cleanup         '0.4.6': '2014-06-13T23:01:45.576Z',
+26 silly cleanup         '0.4.7': '2014-06-13T23:11:13.013Z',
+26 silly cleanup         '0.4.8': '2014-06-13T23:26:46.828Z',
+26 silly cleanup         '0.4.9': '2014-06-14T00:08:54.420Z',
+26 silly cleanup         '0.4.10': '2014-06-14T11:12:16.839Z',
+26 silly cleanup         '0.4.11': '2014-06-15T21:43:51.690Z',
+26 silly cleanup         '0.4.12': '2014-06-16T11:41:52.565Z',
+26 silly cleanup         '0.4.13': '2014-06-17T21:04:29.159Z',
+26 silly cleanup         '0.4.14': '2014-06-24T15:15:38.000Z',
+26 silly cleanup         '0.4.15': '2014-06-26T14:14:59.869Z',
+26 silly cleanup         '0.4.16': '2014-06-26T22:04:14.953Z',
+26 silly cleanup         '0.4.17': '2014-06-27T00:44:05.550Z',
+26 silly cleanup         '0.5.0': '2014-06-27T21:31:53.430Z',
+26 silly cleanup         '0.5.1': '2014-06-27T22:19:33.308Z',
+26 silly cleanup         '0.5.2': '2014-06-27T22:24:45.174Z',
+26 silly cleanup         '0.5.3': '2014-07-18T09:56:24.689Z',
+26 silly cleanup         '0.5.4': '2014-07-18T11:03:20.143Z',
+26 silly cleanup         '0.5.5': '2014-07-22T14:44:16.980Z' },
+26 silly cleanup      homepage: 'http://parall.ax/vtop',
+26 silly cleanup      repository: { type: 'git', url: 'git@github.com:MrRio/vtop.git' },
+26 silly cleanup      author: { name: 'James Hall', email: 'james@parall.ax' },
+26 silly cleanup      bugs: { url: 'https://github.com/MrRio/vtop/issues' },
+26 silly cleanup      license: 'MIT',
+26 silly cleanup      readmeFilename: 'README.md',
+26 silly cleanup      users:
+26 silly cleanup       { mrjameshall: true,
+26 silly cleanup         kikobeats: true,
+26 silly cleanup         davidchase: true,
+26 silly cleanup         'dr-benton': true,
+26 silly cleanup         jklassen: true,
+26 silly cleanup         ericwbailey: true,
+26 silly cleanup         davidchubbs: true,
+26 silly cleanup         efreak: true,
+26 silly cleanup         nelix: true },
+26 silly cleanup      _attachments: {},
+26 silly cleanup      version: '0.5.5',
+26 silly cleanup      main: 'app.js',
+26 silly cleanup      preferGlobal: true,
+26 silly cleanup      engines: { node: '>=0.10.0' },
+26 silly cleanup      bin: { vtop: './bin/vtop.js' },
+26 silly cleanup      dependencies:
+26 silly cleanup       { drawille: '0.1.1',
+26 silly cleanup         'os-utils': '0.0.14',
+26 silly cleanup         read: '1.0.5',
+26 silly cleanup         blessed: '0.0.37',
+26 silly cleanup         commander: '2.2.0',
+26 silly cleanup         sudo: '1.0.3',
+26 silly cleanup         glob: '4.0.4' },
+26 silly cleanup      gitHead: '5ef5c17a694641538a8335ddf7d5c82a30cf16fe',
+26 silly cleanup      scripts: {},
+26 silly cleanup      _shasum: '286bd962e0ffa454a852989d751fd70d73e26e73',
+26 silly cleanup      _from: '.',
+26 silly cleanup      _npmVersion: '1.4.14',
+26 silly cleanup      _npmUser: { name: 'mrjameshall', email: 'james@parall.ax' },
+26 silly cleanup      dist:
+26 silly cleanup       { shasum: '286bd962e0ffa454a852989d751fd70d73e26e73',
+26 silly cleanup         tarball: 'http://registry.npmjs.org/vtop/-/vtop-0.5.5.tgz' },
+26 silly cleanup      directories: {} } }
+27 verbose exit [ 0, true ]
+28 verbose stack Error: write EPIPE
+28 verbose stack     at exports._errnoException (util.js:890:11)
+28 verbose stack     at WriteWrap.afterWrite (net.js:771:14)
+29 verbose cwd /home/jbp/Git/Yoantic
+30 error Linux 3.19.0-25-generic
+31 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "info" "vtop"
+32 error node v5.9.0
+33 error npm  v3.8.2
+34 error code EPIPE
+35 error errno EPIPE
+36 error syscall write
+37 error write EPIPE
+38 error If you need help, you may report this error at:
+38 error     <https://github.com/npm/npm/issues>
+39 verbose exit [ 1, true ]
