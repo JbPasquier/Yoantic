@@ -2,21 +2,29 @@
     <select ng-repeat="(key, item) in selects" ng-model="search.profile[key]" class="selectFilter">
         <option ng-repeat="i in item" value="{{i.value}}">{{i.name}}</option>
     </select>
+    <button class="btn btn-white selectFilter" ng-click='resetSearch()'><span class='glyphicon glyphicon-refresh'></span></button>
 </nav>
 <div class="col-md-10 col-md-offset-1 navbar-inverse">
     <div class="container-fluid">
         <br/>
         <div class="row">
-            <div ng-repeat="user in users | filter:search" class="col-sm-6 col-md-2">
+            <h3>Il y a {{filtered.length}} correspondance{{filtered.length>1?'s':''}} à vos critères</h3>
+            <div ng-repeat="user in filtered = (users | filter:search)" class="col-sm-6 col-md-2">
                 <div class="thumbnail">
                     <a href="#/meet/{{user._id}}"><img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="Yoan"></a>
                     <div class="caption text-center">
-                        <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
-                        <p style='margin-bottom:8px;'>20 ans</p>
-                        <button type="button" class="btn btn-success">
-                            <span class='glyphicon glyphicon-ok'></span>
-                        </button>
+                        <a href="#/meet/{{user._id}}" ng-class='user.profile.sexe?"femme":"homme"'><p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
+                        <p style='margin-bottom:8px;'>{{user.profile.sexe?"Femme":"Homme"}} {{randomAge()}} ans</p></a>
                         <button type="button" class="btn btn-danger">
+                            <span class='glyphicon glyphicon-heart'></span>
+                        </button>
+                        <button type="button" class="btn btn-info">
+                            <span class='glyphicon glyphicon-ice-lolly-tasted'></span>
+                        </button>
+                        <button type="button" class="btn btn-success">
+                            <span class='glyphicon glyphicon-bed'></span>
+                        </button>
+                        <button type="button" class="btn btn-warning">
                             <span class='glyphicon glyphicon-remove'></span>
                         </button>
                     </div>

@@ -168,7 +168,7 @@ input.ng-invalid.ng-not-empty {
 
 .selectFilter {
     background-color: #333333;
-    width: 10%;
+    width: 9%;
     height: 50px;
 }
 
@@ -210,6 +210,12 @@ input.ng-invalid.ng-not-empty {
     color: black;
 }
 
+a.femme {
+    color:#FA3F9A;
+}
+a.homme {
+    color:#0A76B7;
+}
 @media (max-width:900px) {
     .navbar-userCreation {
         display: none;
