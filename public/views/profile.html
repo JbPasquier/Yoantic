@@ -8,7 +8,7 @@
                     <div class="col-xs-12 col-md-4">
                         <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-added="toBase64($files)" class="ng-scope">
                             <div class="pictureUserCreation text-center" ng-show="!$flow.files.length">
-                                <img flow-btn ng-src="user.profile.avatar[0] ? user.profile.avatar[0] : 'assets/yoan_profil.jpg'" alt="You" style='max-width:100%;' class='img-circle' />
+                                <img flow-btn src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' class='img-circle' />
                             </div>
                             <div class="pictureUserCreation ng-hide text-center" ng-show="$flow.files.length">
                                 <img flow-btn flow-img="$flow.files[0]" style='max-width:100%;' class='img-circle'>
