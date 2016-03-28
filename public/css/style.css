@@ -179,10 +179,10 @@ input.ng-invalid.ng-not-empty {
     color: black;
 }
 
-a.femme {
+.femme {
     color: #FA3F9A;
 }
-a.homme {
+.homme {
     color: #0A76B7;
 }
 @media (max-width:900px) {
