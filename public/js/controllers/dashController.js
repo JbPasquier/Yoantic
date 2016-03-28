@@ -31,5 +31,8 @@ function dashController($scope, $location, $http, userFactory, userService) {
                 'Laisse faire le hasard':"Veut avant tout un PC, mais n'est pas contre un PCP"
             }
         };
+        $scope.randomAge = function() {
+            return Math.floor(Math.random()*43)+18;
+        };
     });
 }
