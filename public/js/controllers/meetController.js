@@ -13,12 +13,12 @@ function meetController($scope, $location, $http, $routeParams, userFactory, sea
         });
         var socket = io();
         $('.chat').submit(function () {
-            socket.emit('chat message', $('#m').val());
+            socket.emit('chat message', $scope.username+' : '+$('#m').val());
             $('#m').val('');
             return false;
         });
         socket.on('chat message', function (msg) {
-            $('#messages').prepend($('<li>').html('<span class="nickname">' + $scope.username + '</span> : ' + msg + '<br/><span class="pull-right">' + ((new Date()).toLocaleTimeString()) + '</span>'));
+            $('#messages').prepend($('<li>').html(msg + '<br/><span class="pull-right">' + ((new Date()).toLocaleTimeString()) + '</span>'));
         });
     });
 }
