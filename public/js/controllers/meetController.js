@@ -9,8 +9,6 @@ function meetController($scope, $location, $http, $routeParams, userFactory, sea
         $scope.selects = searchFactory.selects;
         userService.getUserById(id).then(function (f) {
             $scope.selectedUser = f.data[0];
-            console.log(id);
-            console.log(f.data[0]);
         });
         var socket = io();
         $('.chat').submit(function () {
