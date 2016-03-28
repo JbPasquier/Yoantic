@@ -1,5 +1,4 @@
 // set up ======================================================================
-require('piping');
 var http			= require('http');
 var express			= require('express');
 var app				= express();								// create our app w/ express
