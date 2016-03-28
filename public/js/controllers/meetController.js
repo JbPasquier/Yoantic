@@ -12,7 +12,8 @@ function meetController($scope, $location, $http, $routeParams, userFactory, sea
         });
         var socket = io();
         $('.chat').submit(function () {
-            socket.emit('chat message', $scope.username+' : '+$('#m').val());
+            socket.emit('chat message', '<span class="femme">' + $scope.username+'</span> : '+$('#m').val());
+            //socket.emit('chat message', '<span class="homme">' + $scope.username+'</span> : '+$('#m').val());
             $('#m').val('');
             return false;
         });
