@@ -7,7 +7,11 @@ function profileController($scope, $location, $http, userFactory, userService) {
         $scope.user = userFactory.datas;
         $scope.toBase64 = function (files) {
             userService.toBase64(files);
-            $scope.datas.avatar = userFactory.datas.avatar;
+            $scope.user.avatar = userFactory.datas.avatar;
+        };
+
+        $scope.sendProfile = function() {
+            userService.updateAccount($scope.user._id,$scope.user.profile,$scope.user.search);
         };
     });
 }

@@ -4,7 +4,6 @@ body {
     background-size: cover;
     color: #fff;
 }
-
 #fademe {
     position: fixed;
     background-repeat: no-repeat;
@@ -14,15 +13,12 @@ body {
     width: 100%;
     height: 100%;
 }
-
 * {
     font-size: 18px;
 }
-
 h1 {
     margin-bottom: 30px;
 }
-
 .createAccountOne {
     padding: 40px;
     min-height: 600px;
@@ -30,7 +26,6 @@ h1 {
     opacity: .85;
     margin-bottom: 5%;
 }
-
 .createAccount {
     padding: 40px;
     min-height: 400px;
@@ -39,16 +34,13 @@ h1 {
     margin-bottom: 5%;
     background-color: #131625;
 }
-
 .pictureUserCreation {
     min-height: 250px;
     max-width: 100%;
 }
-
 .navbar-userCreation {
     opacity: .9;
 }
-
 .gender {
     width: 120px;
     height: 120px;
@@ -64,108 +56,85 @@ h1 {
     font-size: 80px;
     border-radius: 100%;
 }
-
-.input-group *,
-.form-group * {
+.input-group *, .form-group * {
     background: none;
     border: none;
     font-size: 18px;
     color: #fff;
 }
-
 .question {
     font-size: 24px;
     text-align: right;
     font-weight: normal;
 }
-
 .customSelect {
     list-style: none;
     border-left: 3px solid teal;
     padding: 8px 20px;
 }
-
 .customSelect li {
     cursor: pointer;
     font-size: 18px;
     text-transform: uppercase;
 }
-
 .customSelect li:hover {
     color: teal;
 }
-
 .customSelect li.active {
     color: teal;
     font-weight: bolder;
 }
-
 .red {
     color: red;
 }
-
 .green {
     color: green;
 }
-
 .white {
     color: white;
     padding-left: 5px;
 }
-
 .white span {
     font-size: 22px;
     color: cyan;
 }
-
 .white-danger {
     list-style-type: none;
     color: white;
     padding-left: 5px;
 }
-
 .white-danger span {
     color: red;
 }
-
 .input-group input {
     border-bottom: 1px solid white;
     border-radius: 0;
     margin-bottom: 12px;
 }
-
-input:focus,
-textarea:focus {
+input:focus, textarea:focus {
     box-shadow: none!important;
     border-color: cyan!important;
 }
-
 input.ng-invalid.ng-empty {
     border-color: white;
 }
-
 input.ng-invalid.ng-not-empty {
     border-color: red;
 }
-
 .setOpacity {
     opacity: 1;
 }
-
-.navbar-right li a,
-.btn-white {
+.navbar-right li a, .btn-white {
     background-color: #ededed!important;
     color: #333!important;
     font-weight: bolder;
 }
-
 .userCreationNextBtn {
     position: absolute;
     bottom: 3%;
     right: 1%;
     width: 15%;
 }
-
 .selectFilter {
     background-color: #333333;
     width: 9%;
@@ -211,10 +180,10 @@ input.ng-invalid.ng-not-empty {
 }
 
 a.femme {
-    color:#FA3F9A;
+    color: #FA3F9A;
 }
 a.homme {
-    color:#0A76B7;
+    color: #0A76B7;
 }
 @media (max-width:900px) {
     .navbar-userCreation {

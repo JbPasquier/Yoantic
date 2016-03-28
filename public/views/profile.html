@@ -8,7 +8,7 @@
                     <div class="col-xs-12 col-md-4">
                         <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-files-added="toBase64($files)" class="ng-scope">
                             <div class="pictureUserCreation text-center" ng-show="!$flow.files.length">
-                                <img flow-btn src="assets/yoan_profil.jpg" alt="You" style='max-width:100%;' class='img-circle' />
+                                <img flow-btn ng-src="user.profile.avatar[0] ? user.profile.avatar[0] : 'assets/yoan_profil.jpg'" alt="You" style='max-width:100%;' class='img-circle' />
                             </div>
                             <div class="pictureUserCreation ng-hide text-center" ng-show="$flow.files.length">
                                 <img flow-btn flow-img="$flow.files[0]" style='max-width:100%;' class='img-circle'>
@@ -34,15 +34,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="input-group">
-                            <span class="input-group-addon">T'es d'où ?</span>
-                            <input required type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='datas["city"]' ng-autocomplete='result_city' options="{types: '(cities)'}" />
-                        </div>
+                    <div class="col-xs-12 col-md-5">
                         <div class="input-group">
                             <span class="input-group-addon">Pseudo</span>
-                            <input required type="text" class="form-control" name="nickname" id="nickname" placeholder="Ton pseudo" ng-model='datas["nickname"]' ng-maxlength="12" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false' />
+                            <input required type="text" class="form-control" name="nickname" id="nickname" placeholder="Ton pseudo" ng-model='user.nickname' ng-maxlength="12" ng-pattern="/^[A-Za-z0-9]+$/" ng-trim='false' />
                         </div>
+                        <br />
+                        <div class="input-group">
+                            <span class="input-group-addon">T'es où</span>
+                            <input required type="text" class="form-control" placeholder="La Loupe, Londres, Bayonne..." ng-model='user.profile.city' ng-autocomplete='result_city' options="{types: '(cities)'}" />
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class='gender' style='background-color:#2964A3' ng-show='user.profile.sexe == 0'>&#9794;</div>
+                        <div class='gender' style='background-color:#F152FF' ng-show='user.profile.sexe == 1'>&#9792;</div>
                     </div>
                 </div>
                 <hr/>
@@ -54,10 +59,10 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='Souhaites s\'engager'?'active':'notactive'" ng-click="changeInputProfileVal('Souhaites s\'engager')">C'est mon souhait</li>
-                                <li ng-class="inputProfileVal=='Laisse faire le hasard'?'active':'notactive'" ng-click="changeInputProfileVal('Laisse faire le hasard')">Laissons faire le hasard</li>
-                                <li ng-class="inputProfileVal=='Ne veut pas'?'active':'notactive'" ng-click="changeInputProfileVal('Ne veut pas')">Pas du tout</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.convenant=='Souhaites s\'engager'?'active':'notactive'" ng-click="user.profile.convenant = 'Souhaites s\'engager'">C'est mon souhait</li>
+                                <li ng-class="user.profile.convenant=='Laisse faire le hasard'?'active':'notactive'" ng-click="user.profile.convenant = 'Laisse faire le hasard'">Laissons faire le hasard</li>
+                                <li ng-class="user.profile.convenant=='Ne veut pas'?'active':'notactive'" ng-click="user.profile.convenant = 'Ne veut pas'">Pas du tout</li>
+                                <li ng-class="user.profile.convenant==''?'active':'notactive'" ng-click="user.profile.convenant = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -65,12 +70,12 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='Jamais mariée'?'active':'notactive'" ng-click="changeInputProfileVal('Jamais mariée')">Jamais mariée</li>
-                                <li ng-class="inputProfileVal=='Séparée'?'active':'notactive'" ng-click="changeInputProfileVal('Séparée')">Séparée</li>
-                                <li ng-class="inputProfileVal=='Divorcée'?'active':'notactive'" ng-click="changeInputProfileVal('Divorcée')">Divorcée</li>
-                                <li ng-class="inputProfileVal=='Veuf'?'active':'notactive'" ng-click="changeInputProfileVal('Veuf')">Veuf</li>
-                                <li ng-class="inputProfileVal=='Mariée'?'active':'notactive'" ng-click="changeInputProfileVal('Mariée')">Mariée</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.married=='Jamais mariée'?'active':'notactive'" ng-click="user.profile.married = 'Jamais mariée'">Jamais mariée</li>
+                                <li ng-class="user.profile.married=='Séparée'?'active':'notactive'" ng-click="user.profile.married = 'Séparée'">Séparée</li>
+                                <li ng-class="user.profile.married=='Divorcée'?'active':'notactive'" ng-click="user.profile.married = 'Divorcée'">Divorcée</li>
+                                <li ng-class="user.profile.married=='Veuf'?'active':'notactive'" ng-click="user.profile.married = 'Veuf'">Veuf</li>
+                                <li ng-class="user.profile.married=='Mariée'?'active':'notactive'" ng-click="user.profile.married = 'Mariée'">Mariée</li>
+                                <li ng-class="user.profile.married==''?'active':'notactive'" ng-click="user.profile.married = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -78,9 +83,9 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='J\'en ai'?'active':'notactive'" ng-click="changeInputProfileVal('J\'en ai')">J'en ai</li>
-                                <li ng-class="inputProfileVal=='Je n\'en ai pas'?'active':'notactive'" ng-click="changeInputProfileVal('Je n\'en ai pas')">Je n'en ai pas</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.children=='J\'en ai'?'active':'notactive'" ng-click="user.profile.children = 'J\'en ai'">J'en ai</li>
+                                <li ng-class="user.profile.children=='Je n\'en ai pas'?'active':'notactive'" ng-click="user.profile.children = 'Je n\'en ai pas'">Je n'en ai pas</li>
+                                <li ng-class="user.profile.children==''?'active':'notactive'" ng-click="user.profile.children = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -88,10 +93,10 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='J\'en veux'?'active':'notactive'" ng-click="changeInputProfileVal('J\'en veux')">J'en veux</li>
-                                <li ng-class="inputProfileVal=='Je n\'en veux pas'?'active':'notactive'" ng-click="changeInputProfileVal('Je n\'en veux pas')">Je n'en veux pas</li>
-                                <li ng-class="inputProfileVal=='Je ne sais pas encore'?'active':'notactive'" ng-click="changeInputProfileVal('Je ne sais pas encore')">Je ne sais pas encore</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.wantChildren=='J\'en veux'?'active':'notactive'" ng-click="user.profile.wantChildren = 'J\'en veux'">J'en veux</li>
+                                <li ng-class="user.profile.wantChildren=='Je n\'en veux pas'?'active':'notactive'" ng-click="user.profile.wantChildren = 'Je n\'en veux pas'">Je n'en veux pas</li>
+                                <li ng-class="user.profile.wantChildren=='Je ne sais pas encore'?'active':'notactive'" ng-click="user.profile.wantChildren = 'Je ne sais pas encore'">Je ne sais pas encore</li>
+                                <li ng-class="user.profile.wantChildren==''?'active':'notactive'" ng-click="user.profile.wantChildren = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -99,12 +104,12 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='+200'?'active':'notactive'" ng-click="changeInputProfileVal('+200')">+200</li>
-                                <li ng-class="inputProfileVal=='180-200'?'active':'notactive'" ng-click="changeInputProfileVal('180-200')">180-200</li>
-                                <li ng-class="inputProfileVal=='170-180'?'active':'notactive'" ng-click="changeInputProfileVal('170-180')">170-180</li>
-                                <li ng-class="inputProfileVal=='150-170'?'active':'notactive'" ng-click="changeInputProfileVal('150-170')">150-170</li>
-                                <li ng-class="inputProfileVal=='Nain'?'active':'notactive'" ng-click="changeInputProfileVal('Nain')">Nain</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.height=='+200'?'active':'notactive'" ng-click="user.profile.height = '+200'">+200</li>
+                                <li ng-class="user.profile.height=='180-200'?'active':'notactive'" ng-click="user.profile.height = '180-200'">180-200</li>
+                                <li ng-class="user.profile.height=='170-180'?'active':'notactive'" ng-click="user.profile.height = '170-180'">170-180</li>
+                                <li ng-class="user.profile.height=='150-170'?'active':'notactive'" ng-click="user.profile.height = '150-170'">150-170</li>
+                                <li ng-class="user.profile.height=='Nain'?'active':'notactive'" ng-click="user.profile.height = 'Nain'">Nain</li>
+                                <li ng-class="user.profile.height==''?'active':'notactive'" ng-click="user.profile.height = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -112,15 +117,15 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='-50'?'active':'notactive'" ng-click="changeInputProfileVal('-50')">Moins de 50</li>
-                                <li ng-class="inputProfileVal=='50-60'?'active':'notactive'" ng-click="changeInputProfileVal('50-60')">50-60</li>
-                                <li ng-class="inputProfileVal=='60-70'?'active':'notactive'" ng-click="changeInputProfileVal('60-70')">60-70</li>
-                                <li ng-class="inputProfileVal=='70-80'?'active':'notactive'" ng-click="changeInputProfileVal('70-80')">70-80</li>
-                                <li ng-class="inputProfileVal=='80-90'?'active':'notactive'" ng-click="changeInputProfileVal('80-90')">80-90</li>
-                                <li ng-class="inputProfileVal=='90-100'?'active':'notactive'" ng-click="changeInputProfileVal('90-100')">90-100</li>
-                                <li ng-class="inputProfileVal=='+100'?'active':'notactive'" ng-click="changeInputProfileVal('+100')">Plus de 100</li>
-                                <li ng-class="inputProfileVal=='+9000'?'active':'notactive'" ng-click="changeInputProfileVal('+9000')">It's over 9000</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.weight=='-50'?'active':'notactive'" ng-click="user.profile.weight = '-50'">Moins de 50</li>
+                                <li ng-class="user.profile.weight=='50-60'?'active':'notactive'" ng-click="user.profile.weight = '50-60'">50-60</li>
+                                <li ng-class="user.profile.weight=='60-70'?'active':'notactive'" ng-click="user.profile.weight = '60-70'">60-70</li>
+                                <li ng-class="user.profile.weight=='70-80'?'active':'notactive'" ng-click="user.profile.weight = '70-80'">70-80</li>
+                                <li ng-class="user.profile.weight=='80-90'?'active':'notactive'" ng-click="user.profile.weight = '80-90'">80-90</li>
+                                <li ng-class="user.profile.weight=='90-100'?'active':'notactive'" ng-click="user.profile.weight = '90-100'">90-100</li>
+                                <li ng-class="user.profile.weight=='+100'?'active':'notactive'" ng-click="user.profile.weight = '+100'">Plus de 100</li>
+                                <li ng-class="user.profile.weight=='+9000'?'active':'notactive'" ng-click="user.profile.weight = '+9000'">It's over 9000</li>
+                                <li ng-class="user.profile.weight==''?'active':'notactive'" ng-click="user.profile.weight = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -128,15 +133,15 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='De la moquette'?'active':'notactive'" ng-click="changeInputProfileVal('De la moquette')">Je marche dessus</li>
-                                <li ng-class="inputProfileVal=='Hyper longs'?'active':'notactive'" ng-click="changeInputProfileVal('Hyper longs')">Hyper longs</li>
-                                <li ng-class="inputProfileVal=='Longs'?'active':'notactive'" ng-click="changeInputProfileVal('Longs')">Longs</li>
-                                <li ng-class="inputProfileVal=='Moyens'?'active':'notactive'" ng-click="changeInputProfileVal('Moyens')">Moyens</li>
-                                <li ng-class="inputProfileVal=='Courts'?'active':'notactive'" ng-click="changeInputProfileVal('Courts')">Courts</li>
-                                <li ng-class="inputProfileVal=='Très courts'?'active':'notactive'" ng-click="changeInputProfileVal('Très courts')">Très courts</li>
-                                <li ng-class="inputProfileVal=='Rasé'?'active':'notactive'" ng-click="changeInputProfileVal('Rasé')">Rasé</li>
-                                <li ng-class="inputProfileVal=='Aucun'?'active':'notactive'" ng-click="changeInputProfileVal('Aucun')">Vous avez-dit cheveux ?</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.hairLenght=='De la moquette'?'active':'notactive'" ng-click="user.profile.hairLenght = 'De la moquette'">Je marche dessus</li>
+                                <li ng-class="user.profile.hairLenght=='Hyper longs'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Hyper longs'">Hyper longs</li>
+                                <li ng-class="user.profile.hairLenght=='Longs'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Longs'">Longs</li>
+                                <li ng-class="user.profile.hairLenght=='Moyens'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Moyens'">Moyens</li>
+                                <li ng-class="user.profile.hairLenght=='Courts'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Courts'">Courts</li>
+                                <li ng-class="user.profile.hairLenght=='Très courts'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Très courts'">Très courts</li>
+                                <li ng-class="user.profile.hairLenght=='Rasé'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Rasé'">Rasé</li>
+                                <li ng-class="user.profile.hairLenght=='Aucun'?'active':'notactive'" ng-click="user.profile.hairLenght = 'Aucun'">Vous avez-dit cheveux ?</li>
+                                <li ng-class="user.profile.hairLenght==''?'active':'notactive'" ng-click="user.profile.hairLenght = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -144,17 +149,17 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='Roses'?'active':'notactive'" ng-click="changeInputProfileVal('Roses')">Rosé pamplemouse</li>
-                                <li ng-class="inputProfileVal=='Verts'?'active':'notactive'" ng-click="changeInputProfileVal('Verts')">Vert dur</li>
-                                <li ng-class="inputProfileVal=='Blonds'?'active':'notactive'" ng-click="changeInputProfileVal('Blonds')">Blond surfeur</li>
-                                <li ng-class="inputProfileVal=='Blancs'?'active':'notactive'" ng-click="changeInputProfileVal('Blancs')">Blancs en neige</li>
-                                <li ng-class="inputProfileVal=='Bleus'?'active':'notactive'" ng-click="changeInputProfileVal('Bleus')">Bleus chataîn</li>
-                                <li ng-class="inputProfileVal=='Gris'?'active':'notactive'" ng-click="changeInputProfileVal('Gris')">Gris taupe-provenciale</li>
-                                <li ng-class="inputProfileVal=='Vert'?'active':'notactive'" ng-click="changeInputProfileVal('Vert')">Vert de macédoine</li>
-                                <li ng-class="inputProfileVal=='Brun'?'active':'notactive'" ng-click="changeInputProfileVal('Brun')">Brun terre de sienne</li>
-                                <li ng-class="inputProfileVal=='Propres'?'active':'notactive'" ng-click="changeInputProfileVal('Propres')">Propre</li>
-                                <li ng-class="inputProfileVal=='Stéphanie'?'active':'notactive'" ng-click="changeInputProfileVal('Stéphanie')">Stéphanie de Monaco</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.hairColor=='Roses'?'active':'notactive'" ng-click="user.profile.hairColor = 'Roses'">Rosé pamplemouse</li>
+                                <li ng-class="user.profile.hairColor=='Verts'?'active':'notactive'" ng-click="user.profile.hairColor = 'Verts'">Vert dur</li>
+                                <li ng-class="user.profile.hairColor=='Blonds'?'active':'notactive'" ng-click="user.profile.hairColor = 'Blonds'">Blond surfeur</li>
+                                <li ng-class="user.profile.hairColor=='Blancs'?'active':'notactive'" ng-click="user.profile.hairColor = 'Blancs'">Blancs en neige</li>
+                                <li ng-class="user.profile.hairColor=='Bleus'?'active':'notactive'" ng-click="user.profile.hairColor = 'Bleus'">Bleus chataîn</li>
+                                <li ng-class="user.profile.hairColor=='Gris'?'active':'notactive'" ng-click="user.profile.hairColor = 'Gris'">Gris taupe-provenciale</li>
+                                <li ng-class="user.profile.hairColor=='Vert'?'active':'notactive'" ng-click="user.profile.hairColor = 'Vert'">Vert de macédoine</li>
+                                <li ng-class="user.profile.hairColor=='Brun'?'active':'notactive'" ng-click="user.profile.hairColor = 'Brun'">Brun terre de sienne</li>
+                                <li ng-class="user.profile.hairColor=='Propres'?'active':'notactive'" ng-click="user.profile.hairColor = 'Propres'">Propre</li>
+                                <li ng-class="user.profile.hairColor=='Stéphanie'?'active':'notactive'" ng-click="user.profile.hairColor = 'Stéphanie'">Stéphanie de Monaco</li>
+                                <li ng-class="user.profile.hairColor==''?'active':'notactive'" ng-click="user.profile.hairColor = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <div class="col-md-6">
@@ -162,28 +167,21 @@
                         </div>
                         <div class="col-md-6">
                             <ul class="customSelect">
-                                <li ng-class="inputProfileVal=='Breton'?'active':'notactive'" ng-click="changeInputProfileVal('Breton')">Bretonne</li>
-                                <li ng-class="inputProfileVal=='Celte'?'active':'notactive'" ng-click="changeInputProfileVal('Celte')">Celte</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Germanique'?'active':'notactive'" ng-click="changeInputProfileVal('Germanique')">Germanique</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Romane'?'active':'notactive'" ng-click="changeInputProfileVal('Romane')">Romane</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Navarroise'?'active':'notactive'" ng-click="changeInputProfileVal('Navarroise')">Navarroise</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Occitano-catalane'?'active':'notactive'" ng-click="changeInputProfileVal('Occitano-catalane')">Occitano-catalane</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Gallo-italique'?'active':'notactive'" ng-click="changeInputProfileVal('Gallo-italique')">Gallo-italique</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Créole'?'active':'notactive'" ng-click="changeInputProfileVal('Créole')">Créole</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal=='Polynésienne'?'active':'notactive'" ng-click="changeInputProfileVal('Polynésienne')">Polynésienne</li>
-                                <li ng-class="inputProfileVal=='Basque'?'active':'notactive'" ng-click="changeInputProfileVal('Basque')">Basque</li>
-                                <li ng-class="inputProfileVal==''?'active':'notactive'" ng-click="changeInputProfileVal('')">Je le garde pour moi</li>
+                                <li ng-class="user.profile.origin=='Breton'?'active':'notactive'" ng-click="user.profile.origin = 'Breton'">Bretonne</li>
+                                <li ng-class="user.profile.origin=='Celte'?'active':'notactive'" ng-click="user.profile.origin = 'Celte'">Celte</li>
+                                <li ng-class="user.profile.origin=='Basque'?'active':'notactive'" ng-click="user.profile.origin = 'Basque'">Basque</li>
+                                <li ng-class="user.profile.origin=='Germanique'?'active':'notactive'" ng-click="user.profile.origin = 'Germanique'">Germanique</li>
+                                <li ng-class="user.profile.origin=='Romane'?'active':'notactive'" ng-click="user.profile.origin = 'Romane'">Romane</li>
+                                <li ng-class="user.profile.origin=='Navarroise'?'active':'notactive'" ng-click="user.profile.origin = 'Navarroise'">Navarroise</li>
+                                <li ng-class="user.profile.origin=='Occitano-catalane'?'active':'notactive'" ng-click="user.profile.origin = 'Occitano-catalane'">Occitano-catalane</li>
+                                <li ng-class="user.profile.origin=='Gallo-italique'?'active':'notactive'" ng-click="user.profile.origin = 'Gallo-italique'">Gallo-italique</li>
+                                <li ng-class="user.profile.origin=='Créole'?'active':'notactive'" ng-click="user.profile.origin = 'Créole'">Créole</li>
+                                <li ng-class="user.profile.origin=='Polynésienne'?'active':'notactive'" ng-click="user.profile.origin = 'Polynésienne'">Polynésienne</li>
+                                <li ng-class="user.profile.origin==''?'active':'notactive'" ng-click="user.profile.origin = ''">Je le garde pour moi</li>
                             </ul>
                         </div>
                         <p style="margin: 30px;">
-                            <button type="button" class="btn btn-block btn-lg btn-white">
+                            <button type="button" class="btn btn-block btn-lg btn-white" ng-click='sendProfile()'>
                                 Mettre à jour son profil
                             </button>
                         </p>

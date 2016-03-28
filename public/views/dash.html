@@ -7,7 +7,7 @@
                 <div class="col-md-4 text-center">
                     <img ng-src="{{userProfile.avatar[0]}}" alt="{{userName}}" class='img-circle'/>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-5">
                     <h3>{{username}}</h3>
                     <div ng-repeat='(key, info) in userProfile'>
                         <div ng-show='info != "" && translate.keyMe[key]'>
@@ -17,6 +17,10 @@
                             <br/>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class='gender' style='background-color:#2964A3' ng-show='userProfile.sexe == 0'>&#9794;</div>
+                    <div class='gender' style='background-color:#F152FF' ng-show='userProfile.sexe == 1'>&#9792;</div>
                 </div>
             </div>
             <hr/>
