@@ -1,7 +1,8 @@
 // MEET CONTROLLER
 function meetController($scope, $location, $http, $routeParams, userFactory, searchFactory, userService) {
     var id = $routeParams.id;
-    userService.getUserById('56f6a4ad4cb92db115699b9c').then(function (e) {
+    //Gladys//userService.getUserById('56f6a4ad4cb92db115699b9c').then(function (e) {
+    //Yoan//userService.getUserById('56f6a336eed0cdd2159540fc').then(function (e) {
         $('body').css('background-image', 'none').css('background-image','url("./assets/bg.jpg")');
         userFactory.datas = e.data[0];
         $scope.username = userFactory.datas.profile.firstname + ' ' + userFactory.datas.profile.lastname;
