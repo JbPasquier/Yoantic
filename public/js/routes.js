@@ -22,7 +22,11 @@ function routes($routeProvider) {
     });
     $routeProvider.when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: searchController
+        controller: profileController
+    });
+    $routeProvider.when('/meet/:id', {
+        templateUrl: 'views/meet.html',
+        controller: meetController
     });
     $routeProvider.otherwise({
         redirectTo: '/userCreation/step-0'

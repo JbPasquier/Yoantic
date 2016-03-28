@@ -55,12 +55,12 @@ var User = {
 
     model: mongoose.model('User', userSchema),
 
-    createAccount: function(req, res) {
+    createAccount: function (req, res) {
         console.log(req.body);
         var is_ok = false;
         var roger = "";
 
-        var checkInput = function(input, regex) {
+        var checkInput = function (input, regex) {
             if (!input || typeof input != 'string') {
                 roger += "Input invalid!";
                 return false;
@@ -71,7 +71,7 @@ var User = {
             }
             return true;
         };
-console.log(req.body.currentGender);
+        console.log(req.body.currentGender);
         is_ok =
             checkInput(req.body.nickname, "[A-Za-z0-9-]+") &&
             checkInput(req.body.firstName, "[\\w\\-]+") &&
@@ -98,7 +98,7 @@ console.log(req.body.currentGender);
                     sexe: req.body.currentGender,
                     city: req.body.city
                 }
-            }, function(err, data) {
+            }, function (err, data) {
                 res.send({
                     id: data._id
                 });
@@ -109,9 +109,11 @@ console.log(req.body.currentGender);
         }
 
     },
-    updateAccount: function(req, res) {
-        User.model.find({_id:req.params.id}, function(err, data) {
-            Object.keys(req.body.objProfile).forEach(function(key) {
+    updateAccount: function (req, res) {
+        User.model.find({
+            _id: req.params.id
+        }, function (err, data) {
+            Object.keys(req.body.objProfile).forEach(function (key) {
                 data[0].profile[key] = req.body.objProfile[key];
                 data[0].search[key] = req.body.objSearch[key];
             });
@@ -120,22 +122,24 @@ console.log(req.body.currentGender);
         });
     },
 
-    findUserName: function(req, res) {
+    findUserName: function (req, res) {
         User.model.find({
-            _id: req.params.id
-        }, function(err, data) {
-            res.status(200).send(data);
-        });
+                _id: req.params.id
+            },
+            function (err, data) {
+                console.log(data);
+                res.send(data);
+            });
     },
 
-    findAll: function(req, res) {
-        User.model.find(function(err, data) {
+    findAll: function (req, res) {
+        User.model.find(function (err, data) {
             res.send(data);
         });
     },
 
-    delete: function(req, res) {
-        User.model.findByIdAndRemove(req.params.id, function() {
+    delete: function (req, res) {
+        User.model.findByIdAndRemove(req.params.id, function () {
             res.sendStatus(200);
         });
     }

@@ -1,4 +1,4 @@
-// SEARCH CONTROLLER
+// PROFILE CONTROLLER
 function profileController($scope, $location, $http, userFactory, userService) {
     userService.getUserById('56f6a4ad4cb92db115699b9c').then(function (e) {
         $('body').css('background-image', 'none').css('background-color', 'black');
