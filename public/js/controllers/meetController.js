@@ -2,7 +2,6 @@
 function meetController($scope, $location, $http, $routeParams, userFactory, searchFactory, userService) {
     var id = $routeParams.id;
     userService.getUserById(userFactory.datas._id).then(function(e) { //'56f6a4ad4cb92db115699b9c'
-        //Yoan//userService.getUserById('56f6a336eed0cdd2159540fc').then(function (e) {
         $('body').css('background-image', 'none').css('background-image', 'url("./assets/bg.jpg")');
         userFactory.datas = e.data[0];
         $scope.username = userFactory.datas.profile.firstname + ' ' + userFactory.datas.profile.lastname;
