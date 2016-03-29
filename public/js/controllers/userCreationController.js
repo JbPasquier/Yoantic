@@ -33,5 +33,17 @@ function userCreationController($scope, $http, userService, userNavBarService, u
             userService.toBase64(files);
             $scope.datas.avatar = userFactory.datas.avatar;
         };
+
+        $scope.error = '';
+        $scope.userLog = function() {
+            userService.userLogin({nickname:$scope.userLogin,password:$scope.userPassword}).then(function(res){
+                if(res.statusCode != 200) {
+                    $scope.error = 'Utilisateur inconnu';
+                } else {
+                    userFactory.datas._id = res._id;
+                    $location.path('/dashboard');
+                }
+            });
+        };
     }
 }

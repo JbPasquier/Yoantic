@@ -4,6 +4,9 @@ function userService($http, userFactory) {
         getUserById: function (id) {
             return $http.get('/user/' + id);
         },
+        userLogin: function (data) {
+            return $http.post('/login', data);
+        },
         updateAccount: function (id, objProfile, objSearch) {
             return $http.post('/user/' + id, {
                 objProfile: objProfile,
@@ -25,7 +28,7 @@ function userService($http, userFactory) {
             objSearch[userFactory.databaseOrder[userFactory.prevCurrent].name] = userFactory.datas.inputSearchVal;
             this.updateAccount(userFactory.datas._id, objProfile, objSearch);
         },
-             
+
         toBase64: function (files) {
             angular.forEach(files, function (flowFile, i) {
                 var fileReader = new FileReader();
