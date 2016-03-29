@@ -2,7 +2,7 @@
 
 Wild Code School project
 
-Yoan, who live in La Loupe in the Perche want to pecho des gow, we'll help him !
+Yoan, who live in La Loupe in the Perche want to pecho des gow (girls with some boobies (at least 2) and great substantial soundboard), we'll help him !
 
 ## How to
 
