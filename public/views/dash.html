@@ -5,15 +5,13 @@
             <br/>
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img ng-src="{{userProfile.avatar[0]}}" alt="{{userName}}" class='img-circle'/>
+                    <img ng-src="{{userProfile.avatar[0]}}" alt="{{userName}}" style='max-width:100%;' class='img-circle' />
                 </div>
                 <div class="col-md-5">
                     <h3>{{username}}</h3>
                     <div ng-repeat='(key, info) in userProfile'>
                         <div ng-show='info != "" && translate.keyMe[key]'>
-                            {{translate.keyMe[key]}}
-                            :
-                            {{translate.keyMeVal[info] ? translate.keyMeVal[info] : info}}
+                            {{translate.keyMe[key]}} : {{translate.keyMeVal[info] ? translate.keyMeVal[info] : info}}
                             <br/>
                         </div>
                     </div>
@@ -30,10 +28,12 @@
                         <abbr style='position:absolute;right:10%' title='En ligne'>
                             <span class='glyphicon glyphicon-asterisk' style='color:green'></span>
                         </abbr>
-                        <a href="#/meet/{{user._id}}"><img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="{{user.nickname}}"/></a>
+                        <a href="#/meet/{{user._id}}"><img ng-src="{{user.profile.avatar[0].replace('s=48','s=256')}}" alt="{{user.nickname}}" /></a>
                         <div class="caption text-center">
-                            <a href="#/meet/{{user._id}}" ng-class='user.profile.sexe?"femme":"homme"'><p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
-                            <p style='margin-bottom:8px;'>{{user.profile.sexe?'Femme':'Homme'}} {{randomAge()}} ans</p></a>
+                            <a href="#/meet/{{user._id}}" ng-class='user.profile.sexe?"femme":"homme"'>
+                                <p style='text-transform:capitalize;font-variant:small-caps;margin-bottom:0;'>{{user.nickname}}</p>
+                                <p style='margin-bottom:8px;'>{{user.profile.sexe?'Femme':'Homme'}} {{randomAge()}} ans</p>
+                            </a>
                             <button type="button" class="btn btn-danger">
                                 <span class='glyphicon glyphicon-heart'></span>
                             </button>

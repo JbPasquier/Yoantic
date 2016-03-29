@@ -5,7 +5,7 @@
             <br/>
             <div class="col-md-3 text-center">
                 <p><b>{{selectedUser.profile.firstname}} ({{selectedUser.nickname}})</b></p>
-                <img ng-src="{{selectedUser.profile.avatar[0].replace('s=48','s=256')}}" alt="{{userName}}" />
+                <img ng-src="{{selectedUser.profile.avatar[0].replace('s=48','s=256')}}" style='max-width:100%;' alt="{{userName}}" />
             </div>
             <div class="col-md-6">
                 <p ng-hide="key == 'firstname'||key == 'sexe'||key == 'lastname'||key == 'avatar'" ng-repeat="(key, item) in selectedUser.profile">{{item}}</p>
