@@ -149,7 +149,7 @@ var User = {
             nickname: req.body.nickname,
             password: req.body.password
         }, function (err, data) {
-            if (!data[0]._id) {
+            if (!data[0]) {
                 res.send({
                     statusCode: 'bad login'
                 });

@@ -37,10 +37,10 @@ function userCreationController($scope, $http, userService, userNavBarService, u
         $scope.error = '';
         $scope.userLog = function() {
             userService.userLogin({nickname:$scope.userLogin,password:$scope.userPassword}).then(function(res){
-                if(res.statusCode != 200) {
+                if(res.data.statusCode != 200) {
                     $scope.error = 'Utilisateur inconnu';
                 } else {
-                    userFactory.datas._id = res._id;
+                    userFactory.datas._id = res.data._id;
                     $location.path('/dashboard');
                 }
             });
